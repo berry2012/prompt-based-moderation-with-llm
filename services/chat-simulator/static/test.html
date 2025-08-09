@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Test</title>
+</head>
+<body>
+    <h1>WebSocket Connection Test</h1>
+    <div id="status">Connecting...</div>
+    <button id="testBtn">Test WebSocket</button>
+    <div id="log"></div>
+
+    <script>
+        console.log('Test script loaded');
+        
+        const statusDiv = document.getElementById('status');
+        const logDiv = document.getElementById('log');
+        const testBtn = document.getElementById('testBtn');
+        
+        function log(message) {
+            console.log(message);
+            logDiv.innerHTML += '<p>' + message + '</p>';
+        }
+        
+        function testWebSocket() {
+            log('Testing WebSocket connection...');
+            
+            const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsUrl = `${protocol}//${window.location.host}/ws`;
+            
+            log('WebSocket URL: ' + wsUrl);
+            
+            try {
+                const ws = new WebSocket(wsUrl);
+                
+                ws.onopen = function() {
+                    log('✅ WebSocket connected successfully!');
+                    statusDiv.textContent = 'Connected';
+                    statusDiv.style.color = 'green';
+                    
+                    // Test sending a message
+                    ws.send(JSON.stringify({ action: 'test', message: 'Hello from test' }));
+                };
+                
+                ws.onmessage = function(event) {
+                    log('📨 Received: ' + event.data);
+                };
+                
+                ws.onclose = function() {
+                    log('❌ WebSocket connection closed');
+                    statusDiv.textContent = 'Disconnected';
+                    statusDiv.style.color = 'red';
+                };
+                
+                ws.onerror = function(error) {
+                    log('❌ WebSocket error: ' + error);
+                    statusDiv.textContent = 'Error';
+                    statusDiv.style.color = 'red';
+                };
+                
+            } catch (error) {
+                log('❌ Failed to create WebSocket: ' + error);
+            }
+        }
+        
+        // Test button
+        testBtn.addEventListener('click', testWebSocket);
+        
+        // Auto-test on load
+        document.addEventListener('DOMContentLoaded', function() {
+            log('DOM loaded, testing WebSocket...');
+            setTimeout(testWebSocket, 1000);
+        });
+        
+        log('Script initialized');
+    </script>
+</body>
+</html>

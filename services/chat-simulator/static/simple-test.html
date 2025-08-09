@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple WebSocket Test</title>
+</head>
+<body>
+    <h1>Simple WebSocket Test</h1>
+    <div id="output"></div>
+    <button onclick="testConnection()">Test Connection</button>
+    
+    <script>
+        function log(msg) {
+            document.getElementById('output').innerHTML += '<p>' + new Date().toLocaleTimeString() + ': ' + msg + '</p>';
+            console.log(msg);
+        }
+        
+        function testConnection() {
+            log('Starting WebSocket test...');
+            
+            const wsUrl = 'ws://localhost:8002/ws';
+            log('Connecting to: ' + wsUrl);
+            
+            try {
+                const ws = new WebSocket(wsUrl);
+                
+                ws.onopen = function(event) {
+                    log('✅ WebSocket CONNECTED!');
+                    ws.send(JSON.stringify({action: 'test', message: 'Hello from simple test'}));
+                };
+                
+                ws.onmessage = function(event) {
+                    log('📨 Received: ' + event.data);
+                };
+                
+                ws.onclose = function(event) {
+                    log('❌ WebSocket CLOSED. Code: ' + event.code + ', Reason: ' + event.reason);
+                };
+                
+                ws.onerror = function(error) {
+                    log('❌ WebSocket ERROR: ' + JSON.stringify(error));
+                };
+                
+            } catch (error) {
+                log('❌ Exception creating WebSocket: ' + error.message);
+            }
+        }
+        
+        // Auto-test on load
+        window.onload = function() {
+            log('Page loaded, testing WebSocket...');
+            setTimeout(testConnection, 1000);
+        };
+    </script>
+</body>
+</html>

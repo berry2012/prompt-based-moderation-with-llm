@@ -1,0 +1,117 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "Docker Container Monitoring",
+    "tags": ["docker", "containers", "cadvisor"],
+    "style": "dark",
+    "timezone": "browser",
+    "panels": [
+      {
+        "id": 1,
+        "title": "Container CPU Usage",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "rate(container_cpu_usage_seconds_total{name!=\"\"}[5m]) * 100",
+            "legendFormat": "{{name}}"
+          }
+        ],
+        "yAxes": [
+          {
+            "label": "CPU %",
+            "max": 100,
+            "min": 0
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "id": 2,
+        "title": "Container Memory Usage",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "container_memory_usage_bytes{name!=\"\"} / 1024 / 1024",
+            "legendFormat": "{{name}}"
+          }
+        ],
+        "yAxes": [
+          {
+            "label": "Memory (MB)",
+            "min": 0
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 0
+        }
+      },
+      {
+        "id": 3,
+        "title": "Container Network I/O",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "rate(container_network_receive_bytes_total{name!=\"\"}[5m])",
+            "legendFormat": "{{name}} - RX"
+          },
+          {
+            "expr": "rate(container_network_transmit_bytes_total{name!=\"\"}[5m])",
+            "legendFormat": "{{name}} - TX"
+          }
+        ],
+        "yAxes": [
+          {
+            "label": "Bytes/sec",
+            "min": 0
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 8
+        }
+      },
+      {
+        "id": 4,
+        "title": "Container Disk I/O",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "rate(container_fs_reads_bytes_total{name!=\"\"}[5m])",
+            "legendFormat": "{{name}} - Read"
+          },
+          {
+            "expr": "rate(container_fs_writes_bytes_total{name!=\"\"}[5m])",
+            "legendFormat": "{{name}} - Write"
+          }
+        ],
+        "yAxes": [
+          {
+            "label": "Bytes/sec",
+            "min": 0
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 8
+        }
+      }
+    ],
+    "time": {
+      "from": "now-1h",
+      "to": "now"
+    },
+    "refresh": "5s"
+  }
+}

@@ -1,0 +1,100 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: moderation-system-ingress
+  namespace: moderation-system
+  labels:
+    app.kubernetes.io/name: moderation-system
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
+    alb.ingress.kubernetes.io/healthcheck-path: /health
+    alb.ingress.kubernetes.io/healthcheck-interval-seconds: '30'
+    alb.ingress.kubernetes.io/healthcheck-timeout-seconds: '5'
+    alb.ingress.kubernetes.io/healthy-threshold-count: '2'
+    alb.ingress.kubernetes.io/unhealthy-threshold-count: '3'
+    # Replace with your certificate ARN
+    # alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:region:account:certificate/cert-id
+spec:
+  rules:
+  - host: moderation.your-domain.com  # Replace with your domain
+    http:
+      paths:
+      - path: /api/mcp
+        pathType: Prefix
+        backend:
+          service:
+            name: mcp-server-service
+            port:
+              number: 8000
+      - path: /api/filter
+        pathType: Prefix
+        backend:
+          service:
+            name: lightweight-filter-service
+            port:
+              number: 8001
+      - path: /api/simulator
+        pathType: Prefix
+        backend:
+          service:
+            name: chat-simulator-service
+            port:
+              number: 8002
+      - path: /api/decision
+        pathType: Prefix
+        backend:
+          service:
+            name: decision-handler-service
+            port:
+              number: 8003
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: chat-simulator-service
+            port:
+              number: 8002
+---
+# Internal ingress for service-to-service communication
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: moderation-system-internal
+  namespace: moderation-system
+  labels:
+    app.kubernetes.io/name: moderation-system
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internal
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
+spec:
+  rules:
+  - host: moderation-internal.your-domain.com  # Replace with your internal domain
+    http:
+      paths:
+      - path: /mcp
+        pathType: Prefix
+        backend:
+          service:
+            name: mcp-server-service
+            port:
+              number: 8000
+      - path: /filter
+        pathType: Prefix
+        backend:
+          service:
+            name: lightweight-filter-service
+            port:
+              number: 8001
+      - path: /decision
+        pathType: Prefix
+        backend:
+          service:
+            name: decision-handler-service
+            port:
+              number: 8003

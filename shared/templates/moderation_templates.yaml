@@ -1,0 +1,195 @@
+moderation_prompt:
+  name: "moderation_prompt"
+  version: "1.0"
+  description: "Basic toxicity classification prompt"
+  safety_level: "high"
+  expected_output: "json"
+  prompt: |
+    Classify the following chat message for toxicity and harmful content:
+    
+    Message: "{chat_message}"
+    User ID: {user_id}
+    Channel: {channel_id}
+    
+    Analyze for:
+    - Toxic language (hate speech, harassment, threats)
+    - Spam or promotional content
+    - Personal information sharing
+    - Inappropriate content for the platform
+    
+    Respond ONLY with valid JSON in this exact format:
+    {
+      "decision": "[Toxic/Non-Toxic]",
+      "confidence": 0.95,
+      "reasoning": "Brief explanation of the decision",
+      "categories": ["toxicity", "spam", "pii", "inappropriate"]
+    }
+
+harassment_detection:
+  name: "harassment_detection"
+  version: "1.1"
+  description: "Specialized harassment and bullying detection"
+  safety_level: "high"
+  expected_output: "json"
+  prompt: |
+    Analyze this message for harassment, bullying, or targeted attacks:
+    
+    Message: "{chat_message}"
+    Context: Previous messages in conversation
+    
+    Look for:
+    - Personal attacks or insults
+    - Cyberbullying behavior
+    - Doxxing attempts
+    - Coordinated harassment
+    - Identity-based attacks
+    
+    Response format:
+    {
+      "decision": "[Harassment/Safe]",
+      "confidence": 0.90,
+      "severity": "[Low/Medium/High]",
+      "reasoning": "Detailed explanation",
+      "action_recommended": "[Log/Flag/Escalate/Ban]"
+    }
+
+spam_detection:
+  name: "spam_detection"
+  version: "1.0"
+  description: "Spam and promotional content detection"
+  safety_level: "medium"
+  expected_output: "json"
+  prompt: |
+    Evaluate this message for spam or unwanted promotional content:
+    
+    Message: "{chat_message}"
+    User posting frequency: High/Medium/Low
+    
+    Check for:
+    - Repetitive content
+    - External links or promotions
+    - Cryptocurrency/investment schemes
+    - Phishing attempts
+    - Off-topic commercial content
+    
+    Response:
+    {
+      "decision": "[Spam/Legitimate]",
+      "confidence": 0.85,
+      "spam_type": "promotional/repetitive/phishing/other",
+      "reasoning": "Why this was classified as spam"
+    }
+
+pii_detection:
+  name: "pii_detection"
+  version: "1.0"
+  description: "Personal Identifiable Information detection"
+  safety_level: "high"
+  expected_output: "json"
+  prompt: |
+    Scan this message for personally identifiable information (PII):
+    
+    Message: "{chat_message}"
+    
+    Look for:
+    - Email addresses
+    - Phone numbers
+    - Physical addresses
+    - Social security numbers
+    - Credit card information
+    - Full names with context
+    - Government ID numbers
+    
+    Response:
+    {
+      "decision": "[PII-Detected/Clean]",
+      "confidence": 0.95,
+      "pii_types": ["email", "phone", "address", "ssn", "credit_card"],
+      "reasoning": "What PII was detected and why it's concerning"
+    }
+
+content_policy:
+  name: "content_policy"
+  version: "2.0"
+  description: "General content policy enforcement"
+  safety_level: "medium"
+  expected_output: "json"
+  prompt: |
+    Review this message against platform content policies:
+    
+    Message: "{chat_message}"
+    Platform: General chat application
+    
+    Policy violations to check:
+    - Adult/NSFW content
+    - Violence or graphic content
+    - Misinformation
+    - Copyright infringement
+    - Platform manipulation
+    - Impersonation
+    
+    Response:
+    {
+      "decision": "[Violation/Compliant]",
+      "confidence": 0.88,
+      "violation_types": ["nsfw", "violence", "misinformation", "copyright", "manipulation", "impersonation"],
+      "severity": "[Minor/Major/Severe]",
+      "reasoning": "Specific policy violations identified"
+    }
+
+multilingual_moderation:
+  name: "multilingual_moderation"
+  version: "1.0"
+  description: "Multi-language content moderation"
+  safety_level: "high"
+  expected_output: "json"
+  prompt: |
+    Moderate this message which may be in multiple languages:
+    
+    Message: "{chat_message}"
+    Detected languages: Auto-detect
+    
+    Analyze for harmful content regardless of language:
+    - Translate if necessary
+    - Detect toxic content in any language
+    - Consider cultural context
+    - Check for code-switching to evade detection
+    
+    Response:
+    {
+      "decision": "[Toxic/Non-Toxic]",
+      "confidence": 0.90,
+      "detected_language": "language_code",
+      "translation": "English translation if applicable",
+      "reasoning": "Analysis considering cultural and linguistic context"
+    }
+
+context_aware_moderation:
+  name: "context_aware_moderation"
+  version: "1.2"
+  description: "Context-aware moderation with conversation history"
+  safety_level: "high"
+  expected_output: "json"
+  prompt: |
+    Moderate this message considering conversation context:
+    
+    Current Message: "{chat_message}"
+    Previous Messages: {conversation_history}
+    Channel Type: {channel_type}
+    User History: {user_reputation}
+    
+    Consider:
+    - Message in context of conversation
+    - Escalating behavior patterns
+    - Channel-appropriate content
+    - User's historical behavior
+    - Sarcasm, jokes, or legitimate discussion
+    
+    Response:
+    {
+      "decision": "[Toxic/Non-Toxic]",
+      "confidence": 0.92,
+      "context_influence": "How context affected the decision",
+      "pattern_detected": "Any behavioral patterns observed",
+      "reasoning": "Comprehensive analysis including context"
+    }

@@ -1,0 +1,32 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: fsx-sc
+provisioner: fsx.csi.aws.com
+parameters:
+  subnetId: subnet-089cc6454c871e2d2
+  securityGroupIds: sg-012b716ce1fe35102
+  deploymentType: PERSISTENT_1
+  automaticBackupRetentionDays: "1"
+  dailyAutomaticBackupStartTime: "00:00"
+  copyTagsToBackups: "true"
+  perUnitStorageThroughput: "200"
+  dataCompressionType: "NONE"
+  weeklyMaintenanceStartTime: "7:09:00"
+  fileSystemTypeVersion: "2.12"
+  extraTags: "Tag1=Value1,Tag2=Value2"
+mountOptions:
+  - flock
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: fsx-claim
+  namespace: mistral
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: fsx-sc
+  resources:
+    requests:
+      storage: 1200Gi

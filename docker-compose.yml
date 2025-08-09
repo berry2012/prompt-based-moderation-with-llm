@@ -1,0 +1,222 @@
+version: '3.8'
+
+services:
+  # MCP Server - Model Context Protocol Server
+  mcp-server:
+    build:
+      context: ./services/mcp-server
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    env_file: ".env"
+    volumes:
+      - ./shared/templates:/app/templates:ro
+      - ./logs/mcp-server:/app/logs
+    depends_on:
+      - prometheus
+    networks:
+      - moderation-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Lightweight Filter
+  lightweight-filter:
+    build:
+      context: ./services/lightweight-filter
+      dockerfile: Dockerfile
+    ports:
+      - "8001:8001"
+    environment:
+      - LOG_LEVEL=INFO
+    volumes:
+      - ./services/lightweight-filter/config:/app/config:ro
+      - ./logs/lightweight-filter:/app/logs
+    networks:
+      - moderation-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Chat Simulator
+  chat-simulator:
+    build:
+      context: ./services/chat-simulator
+      dockerfile: Dockerfile
+    ports:
+      - "8002:8002"
+    environment:
+      - MCP_ENDPOINT=http://mcp-server:8000
+      - FILTER_ENDPOINT=http://lightweight-filter:8001
+      - MESSAGE_INTERVAL=2.0
+      - REQUEST_TIMEOUT=10.0
+      - WHISPER_MODEL_SIZE=base
+      - LOG_LEVEL=INFO
+    volumes:
+      - ./services/chat-simulator/data:/app/data:ro
+      - ./logs/chat-simulator:/app/logs
+    depends_on:
+      - mcp-server
+      - lightweight-filter
+    networks:
+      - moderation-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8002/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Decision Handler
+  decision-handler:
+    build:
+      context: ./services/decision-handler
+      dockerfile: Dockerfile
+    ports:
+      - "8003:8003"
+    environment:
+      - DATABASE_URL=postgresql://postgres:password@postgres:5432/moderation_db
+      - LOG_LEVEL=INFO
+    volumes:
+      - ./logs/decision-handler:/app/logs
+    depends_on:
+      - postgres
+    networks:
+      - moderation-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8003/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Metrics & Evaluation Module
+  metrics-evaluator:
+    build:
+      context: ./services/metrics-evaluator
+      dockerfile: Dockerfile
+    ports:
+      - "8004:8004"
+    environment:
+      - PROMETHEUS_ENDPOINT=http://prometheus:9090
+      - DATABASE_URL=postgresql://postgres:password@postgres:5432/moderation_db
+      - LOG_LEVEL=INFO
+    volumes:
+      - ./logs/metrics-evaluator:/app/logs
+    depends_on:
+      - prometheus
+      - postgres
+    networks:
+      - moderation-network
+    restart: unless-stopped
+
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=moderation_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./services/decision-handler/migrations:/docker-entrypoint-initdb.d:ro
+    networks:
+      - moderation-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # Redis (for caching and rate limiting)
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - moderation-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Prometheus (Metrics Collection)
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+    networks:
+      - moderation-network
+    restart: unless-stopped
+
+  # Grafana (Metrics Visualization)
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+      - GF_INSTALL_PLUGINS=grafana-piechart-panel
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./monitoring/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./monitoring/grafana/dashboards:/etc/grafana/provisioning/dashboards:ro
+    depends_on:
+      - prometheus
+    networks:
+      - moderation-network
+    restart: unless-stopped
+
+  # Jaeger (Distributed Tracing)
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    ports:
+      - "16686:16686"
+      - "14268:14268"
+    environment:
+      - COLLECTOR_OTLP_ENABLED=true
+    networks:
+      - moderation-network
+    restart: unless-stopped
+
+
+networks:
+  moderation-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+  prometheus_data:
+    driver: local
+  grafana_data:
+    driver: local

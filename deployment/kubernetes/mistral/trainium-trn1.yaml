@@ -1,0 +1,80 @@
+apiVersion: karpenter.sh/v1
+kind: NodePool
+metadata:
+  name: trainium-trn1
+spec:
+  disruption:
+    budgets:
+    - nodes: 10%
+    consolidateAfter: 300s
+    consolidationPolicy: WhenEmptyOrUnderutilized
+  limits:
+    aws.amazon.com/neuron: 4
+    cpu: 32
+    memory: 128Gi
+  template:
+    metadata:
+      labels:
+        instanceType: trn1.2xlarge
+        neuron.amazonaws.com/neuron-device: "true"
+        provisionerType: Karpenter
+    spec:
+      expireAfter: 720h
+      nodeClassRef:
+        group: karpenter.k8s.aws
+        kind: EC2NodeClass
+        name: trainium-trn1
+      requirements:
+      - key: node.kubernetes.io/instance-type
+        operator: In
+        values:
+        - trn1.2xlarge
+      - key: kubernetes.io/arch
+        operator: In
+        values:
+        - amd64
+      - key: karpenter.sh/capacity-type
+        operator: In
+        values:
+        - on-demand
+      taints:
+      - effect: NoSchedule
+        key: aws.amazon.com/neuron
+        value: "true"
+      terminationGracePeriod: 24h
+
+---
+apiVersion: eks.amazonaws.com/v1
+kind: NodeClass
+metadata:
+  name: trainium-trn1
+spec:
+  amiFamily: AL2023
+  amiSelectorTerms:
+  - name: amazon-eks-node-al2023-x86_64-neuron-1.32-v20250304
+  blockDeviceMappings:
+  - deviceName: /dev/xvda
+    ebs:
+      deleteOnTermination: true
+      encrypted: true
+      volumeSize: 500Gi
+      volumeType: gp3
+  instanceStorePolicy: RAID0
+  metadataOptions:
+    httpEndpoint: enabled
+    httpProtocolIPv6: disabled
+    httpPutResponseHopLimit: 1
+    httpTokens: required
+  role: AmazonEKSAutoNodeRole
+  securityGroupSelectorTerms:
+  - id: sg-012b716ce1fe35102
+  snatPolicy: Random
+  subnetSelectorTerms:
+  - id: subnet-03219dfaa61eea623
+  - id: subnet-03113131aac0685ce
+  - id: subnet-0243c7bd2b61f1ed6
+  - id: subnet-089cc6454c871e2d2
+  - id: subnet-09e7855b07ef84a98
+  - id: subnet-00618adc99c5ce27c
+  tags:
+    aws-neuron: "true"

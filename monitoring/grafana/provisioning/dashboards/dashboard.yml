@@ -1,0 +1,41 @@
+apiVersion: 1
+
+providers:
+  - name: 'dashboards'
+    orgId: 1
+    folder: ''
+    type: file
+    disableDeletion: false
+    updateIntervalSeconds: 10
+    allowUiUpdates: true
+    options:
+      path: /etc/grafana/provisioning/dashboards
+      foldersFromFilesStructure: true
+  # - name: 'filter-analysis'
+  #   orgId: 1
+  #   folder: ''
+  #   type: file
+  #   disableDeletion: false
+  #   updateIntervalSeconds: 10
+  #   allowUiUpdates: true
+  #   options:
+  #     path: /var/lib/grafana/dashboards
+  # - name: 'service-performance'
+  #   orgId: 1
+  #   folder: ''
+  #   type: file
+  #   disableDeletion: false
+  #   updateIntervalSeconds: 10
+  #   allowUiUpdates: true
+  #   options:
+  #     path: /var/lib/grafana/dashboards   
+  # - name: 'realtime-monitoring'
+  #   orgId: 1
+  #   folder: ''
+  #   type: file
+  #   disableDeletion: false
+  #   updateIntervalSeconds: 10
+  #   allowUiUpdates: true
+  #   options:
+  #     path: /var/lib/grafana/dashboards                   
+

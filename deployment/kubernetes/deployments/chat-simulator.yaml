@@ -1,0 +1,84 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chat-simulator
+  namespace: moderation-system
+  labels:
+    app.kubernetes.io/name: chat-simulator
+    app.kubernetes.io/component: simulator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: chat-simulator
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: chat-simulator
+        app.kubernetes.io/component: simulator
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8002"
+        prometheus.io/path: "/metrics"
+    spec:
+      serviceAccountName: moderation-service-account
+      # Deploy to your custom nodepool
+      nodeSelector:
+        owner: "data-engineer"
+      tolerations:
+      - key: "dedicated"
+        operator: "Equal"
+        value: "custom-workload"
+        effect: "NoSchedule"
+      containers:
+      - name: chat-simulator
+        image: your-registry/chat-simulator:latest  # Replace with your image
+        ports:
+        - containerPort: 8002
+          name: http
+        env:
+        - name: MCP_ENDPOINT
+          value: "http://mcp-server-service:8000"
+        - name: FILTER_ENDPOINT
+          value: "http://lightweight-filter-service:8001"
+        - name: MESSAGE_INTERVAL
+          valueFrom:
+            configMapKeyRef:
+              name: moderation-config
+              key: message-interval
+        - name: REQUEST_TIMEOUT
+          valueFrom:
+            configMapKeyRef:
+              name: moderation-config
+              key: request-timeout
+        - name: LOG_LEVEL
+          valueFrom:
+            configMapKeyRef:
+              name: moderation-config
+              key: log-level
+        - name: ENABLE_WHISPER
+          valueFrom:
+            configMapKeyRef:
+              name: moderation-config
+              key: enable-whisper
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "200m"
+          limits:
+            memory: "512Mi"
+            cpu: "400m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8002
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8002
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 3

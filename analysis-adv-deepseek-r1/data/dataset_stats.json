@@ -1,0 +1,10 @@
+{
+  "total_samples": 40,
+  "toxic_samples": 20,
+  "non_toxic_samples": 20,
+  "toxic_percentage": 50.0,
+  "avg_length": 277.6,
+  "median_length": 162.5,
+  "min_length": 6,
+  "max_length": 958
+}

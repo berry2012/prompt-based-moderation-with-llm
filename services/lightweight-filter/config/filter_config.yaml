@@ -1,0 +1,61 @@
+banned_words:
+  - spam
+  - scam
+  - fake
+  - bot
+  - hack
+  - cheat
+  - idiot
+  - stupid
+  - moron
+  - loser
+  - noob
+  - kill
+  - die
+  - hate
+  - suck
+  - terrible
+  - worst
+  - pathetic
+  - worthless
+
+patterns:
+  toxic:
+    - '\b(kill\s+yourself|kys)\b'
+    - '\b(go\s+die|die\s+in\s+a\s+fire)\b'
+    - '\b(hate\s+you|you\s+suck)\b'
+    - '\b(you\s+are\s+terrible|you\s+are\s+stupid)\b'
+    - '\b(nobody\s+cares|nobody\s+likes\s+you)\b'
+    - '\b(go\s+to\s+hell|burn\s+in\s+hell)\b'
+    - '\b(piece\s+of\s+shit|pos)\b'
+    - '\b(fuck\s+you|f\s+you)\b'
+    
+  spam:
+    - '(bit\.ly|tinyurl|t\.co)/\w+'
+    - '(free\s+money|click\s+here|buy\s+now)'
+    - '💰{2,}|🎉{2,}|‼️{2,}'
+    - '(subscribe|follow)\s+(for|to)\s+(free|exclusive)'
+    - '(make\s+money|get\s+rich|earn\s+cash)'
+    - '(crypto|bitcoin|investment)\s+(opportunity|scheme)'
+    - '(limited\s+time|expires\s+soon|act\s+now)'
+    - '(giveaway|contest|winner)'
+    
+  pii:
+    - '\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'  # Email
+    - '\b\d{3}-\d{3}-\d{4}\b'  # Phone number
+    - '\b\(\d{3}\)\s*\d{3}-\d{4}\b'  # Phone number with parentheses
+    - '\b\d{4}[-\s]?\d{4}[-\s]?\d{4}[-\s]?\d{4}\b'  # Credit card
+    - '\b\d{3}-\d{2}-\d{4}\b'  # SSN
+    - '\b\d{1,5}\s+\w+\s+(street|st|avenue|ave|road|rd|drive|dr|lane|ln|boulevard|blvd)'  # Address
+
+whitelist:
+  - game
+  - play
+  - fun
+  - cool
+  - awesome
+  - great
+  - good
+  - nice
+  - thanks
+  - help

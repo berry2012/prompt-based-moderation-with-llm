@@ -1,0 +1,205 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: moderation-config
+  namespace: moderation-system
+  labels:
+    app.kubernetes.io/name: moderation-system
+data:
+  # Application configuration
+  log-level: "INFO"
+  message-interval: "2.0"
+  request-timeout: "10.0"
+  max-concurrent-requests: "100"
+  rate-limit-per-user: "60"
+  rate-limit-window: "60"
+  
+  # Feature flags
+  enable-lightweight-filter: "true"
+  enable-whisper: "false"
+  enable-metrics: "true"
+  enable-tracing: "true"
+  
+  # Database configuration
+  database-name: "moderation_db"
+  database-pool-size: "20"
+  database-max-overflow: "30"
+  
+  # Redis configuration
+  redis-db: "0"
+  redis-max-connections: "50"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prompt-templates
+  namespace: moderation-system
+  labels:
+    app.kubernetes.io/name: moderation-system
+data:
+  moderation_templates.yaml: |
+    moderation_prompt:
+      name: "moderation_prompt"
+      version: "1.0"
+      description: "Basic toxicity classification prompt"
+      safety_level: "high"
+      expected_output: "json"
+      prompt: |
+        Classify the following chat message for toxicity and harmful content:
+        
+        Message: "{chat_message}"
+        User ID: {user_id}
+        Channel: {channel_id}
+        
+        Analyze for:
+        - Toxic language (hate speech, harassment, threats)
+        - Spam or promotional content
+        - Personal information sharing
+        - Inappropriate content for the platform
+        
+        Respond ONLY with valid JSON in this exact format:
+        {
+          "decision": "[Toxic/Non-Toxic]",
+          "confidence": 0.95,
+          "reasoning": "Brief explanation of the decision",
+          "categories": ["toxicity", "spam", "pii", "inappropriate"]
+        }
+
+    harassment_detection:
+      name: "harassment_detection"
+      version: "1.1"
+      description: "Specialized harassment and bullying detection"
+      safety_level: "high"
+      expected_output: "json"
+      prompt: |
+        Analyze this message for harassment, bullying, or targeted attacks:
+        
+        Message: "{chat_message}"
+        
+        Look for:
+        - Personal attacks or insults
+        - Cyberbullying behavior
+        - Doxxing attempts
+        - Coordinated harassment
+        - Identity-based attacks
+        
+        Response format:
+        {
+          "decision": "[Harassment/Safe]",
+          "confidence": 0.90,
+          "severity": "[Low/Medium/High]",
+          "reasoning": "Detailed explanation",
+          "action_recommended": "[Log/Flag/Escalate/Ban]"
+        }
+
+    spam_detection:
+      name: "spam_detection"
+      version: "1.0"
+      description: "Spam and promotional content detection"
+      safety_level: "medium"
+      expected_output: "json"
+      prompt: |
+        Evaluate this message for spam or unwanted promotional content:
+        
+        Message: "{chat_message}"
+        
+        Check for:
+        - Repetitive content
+        - External links or promotions
+        - Cryptocurrency/investment schemes
+        - Phishing attempts
+        - Off-topic commercial content
+        
+        Response:
+        {
+          "decision": "[Spam/Legitimate]",
+          "confidence": 0.85,
+          "spam_type": "promotional/repetitive/phishing/other",
+          "reasoning": "Why this was classified as spam"
+        }
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: filter-config
+  namespace: moderation-system
+  labels:
+    app.kubernetes.io/name: moderation-system
+data:
+  filter_config.yaml: |
+    banned_words:
+      - spam
+      - scam
+      - fake
+      - bot
+      - hack
+      - cheat
+      - idiot
+      - stupid
+      - moron
+      - loser
+      - noob
+      - kill
+      - die
+      - hate
+      - suck
+      - terrible
+      - worst
+      - pathetic
+      - worthless
+
+    patterns:
+      toxic:
+        - '\b(kill\s+yourself|kys)\b'
+        - '\b(go\s+die|die\s+in\s+a\s+fire)\b'
+        - '\b(hate\s+you|you\s+suck)\b'
+        - '\b(you\s+are\s+terrible|you\s+are\s+stupid)\b'
+        - '\b(nobody\s+cares|nobody\s+likes\s+you)\b'
+        
+      spam:
+        - '(bit\.ly|tinyurl|t\.co)/\w+'
+        - '(free\s+money|click\s+here|buy\s+now)'
+        - '💰{2,}|🎉{2,}|‼️{2,}'
+        - '(subscribe|follow)\s+(for|to)\s+(free|exclusive)'
+        - '(make\s+money|get\s+rich|earn\s+cash)'
+        
+      pii:
+        - '\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+        - '\b\d{3}-\d{3}-\d{4}\b'
+        - '\b\(\d{3}\)\s*\d{3}-\d{4}\b'
+        - '\b\d{4}[-\s]?\d{4}[-\s]?\d{4}[-\s]?\d{4}\b'
+        - '\b\d{3}-\d{2}-\d{4}\b'
+
+    whitelist:
+      - game
+      - play
+      - fun
+      - cool
+      - awesome
+      - great
+      - good
+      - nice
+      - thanks
+      - help
+
+  banned_words.txt: |
+    damn
+    hell
+    crap
+    stupid
+    idiot
+    moron
+    loser
+    noob
+    suck
+    hate
+    kill
+    die
+    terrible
+    awful
+    worst
+    pathetic
+    worthless
+    useless
+    garbage
+    trash
