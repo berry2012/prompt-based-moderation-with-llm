@@ -36,10 +36,10 @@ Thumbs.db
 .dockerignore
 
 # Analysis outputs
-*.png
-*.pdf
-*_report.md
-*.csv
+; *.png
+; *.pdf
+; *_report.md
+; *.csv
 
 # Temporary files
 *.tmp
