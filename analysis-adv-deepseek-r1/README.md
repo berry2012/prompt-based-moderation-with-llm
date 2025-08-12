@@ -1,6 +1,6 @@
 # Moderation System Analysis
 
-This directory contains scripts for analyzing the performance of the real-time moderation system using the experiment-data.csv dataset.
+This directory contains scripts for analyzing the performance of the LLM used in the real-time moderation system using the experiment-data.csv dataset.
 
 ## Prerequisites
 

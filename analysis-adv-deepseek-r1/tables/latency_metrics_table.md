@@ -1,7 +1,7 @@
 | Latency Metric     |   Value (seconds) |
 |:-------------------|------------------:|
-| Average            |           11.0154 |
-| Median             |           10.5489 |
-| Standard Deviation |            1.7841 |
-| Minimum            |            6.4718 |
-| Maximum            |           17.1921 |
+| Average            |            9.7459 |
+| Median             |            9.9684 |
+| Standard Deviation |            2.3444 |
+| Minimum            |            4.2607 |
+| Maximum            |           14.3724 |
