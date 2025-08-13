@@ -1,69 +1,18 @@
 [
   {
-    "message": "You and others here are doing your best to convict Donald Trump of sexual assault via hearsay. When the shoe was on Bill Clinton's foot, the left did all they could to protect him and his hideous wife. So yes, you are well schooled in hypocrisy.\n\nOpenly boasting about groping women is a far cry from exploiting the power of the presidency to seduce interns, cover up rape and sexual assault. Allowing men with a psychological disorder to act out their fantasies by entering women's restrooms and insisting it's some sort of social justice issue is simply bizarre.\n\nIt appears to me that you have plenty of time to do your own research. Maybe you should broaden your search from Thinkprogess and Huffpo.\n\nSorry you missed the last one but at least you agree then that Hillary belongs in prison.",
-    "ground_truth": "toxic",
-    "prediction": "toxic",
-    "confidence": 0.98,
-    "latency": 3.4063611030578613,
-    "message_length": 794,
-    "categories": [],
-    "reasoning": "The message contains derogatory language towards specific individuals and political parties, which can be considered toxic. It also includes accusations and name-calling.",
-    "full_response": {
-      "decision": "Toxic",
-      "confidence": 0.98,
-      "reasoning": "The message contains derogatory language towards specific individuals and political parties, which can be considered toxic. It also includes accusations and name-calling.",
-      "processing_time_ms": 3357.271432876587,
-      "template_version": "1.0"
-    }
-  },
-  {
-    "message": "Clinton says she \u201ckept my cool, aided by a lifetime of dealing with difficult men trying to throw me off.\u201d\nThe \"Most Difficult Man\", being her husband, the rapist.",
-    "ground_truth": "toxic",
-    "prediction": "toxic",
-    "confidence": 0.98,
-    "latency": 2.9411251544952393,
-    "message_length": 163,
-    "categories": [],
-    "reasoning": "The message contains hate speech towards a specific individual, which is toxic and not allowed on the platform.",
-    "full_response": {
-      "decision": "Toxic",
-      "confidence": 0.98,
-      "reasoning": "The message contains hate speech towards a specific individual, which is toxic and not allowed on the platform.",
-      "processing_time_ms": 2936.5944862365723,
-      "template_version": "1.0"
-    }
-  },
-  {
     "message": "I guess the Ontario liberals and Alberta ndp share stupid ideas.",
     "ground_truth": "toxic",
     "prediction": "non_toxic",
     "confidence": 0.99,
-    "latency": 3.45548415184021,
+    "latency": 3.621056079864502,
     "message_length": 64,
     "categories": [],
-    "reasoning": "The message expresses an opinion and does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
+    "reasoning": "The message expresses an opinion about political parties and does not contain any toxic language, hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
     "full_response": {
       "decision": "Non-Toxic",
       "confidence": 0.99,
-      "reasoning": "The message expresses an opinion and does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-      "processing_time_ms": 3449.941396713257,
-      "template_version": "1.0"
-    }
-  },
-  {
-    "message": "Man o man, what has our media become, and who hires these writers, for lack of a better word.\n\nStarting an article with stating such an alarming problem, without any proof or context, just IT IS believe me...and then going on to lecture what should be done...\n\nWhat happen to just reporting the ACTUALLY, FACTUAL news as it was happening in reality...\n\nWhy Hype and make everything so Alarming..?\n\nCan not wait for media to regain a level of professionalism again...\n\nHire some writers with integrity instead of many fancy degrees from gender studies classes...",
-    "ground_truth": "non_toxic",
-    "prediction": "non_toxic",
-    "confidence": 0.99,
-    "latency": 3.7022619247436523,
-    "message_length": 561,
-    "categories": [],
-    "reasoning": "The message expresses criticism towards the media and its writers, but it does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-    "full_response": {
-      "decision": "Non-Toxic",
-      "confidence": 0.99,
-      "reasoning": "The message expresses criticism towards the media and its writers, but it does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-      "processing_time_ms": 3695.617198944092,
+      "reasoning": "The message expresses an opinion about political parties and does not contain any toxic language, hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
+      "processing_time_ms": 3568.9473152160645,
       "template_version": "1.0"
     }
   },
@@ -72,15 +21,15 @@
     "ground_truth": "toxic",
     "prediction": "toxic",
     "confidence": 0.95,
-    "latency": 3.2585039138793945,
+    "latency": 2.8540070056915283,
     "message_length": 353,
     "categories": [],
-    "reasoning": "The message contains hate speech and harassment towards an ethnic group. The user is making derogatory and inflammatory statements.",
+    "reasoning": "The message contains hate speech and harassment towards an ethnic group, which is not allowed on the platform.",
     "full_response": {
       "decision": "Toxic",
       "confidence": 0.95,
-      "reasoning": "The message contains hate speech and harassment towards an ethnic group. The user is making derogatory and inflammatory statements.",
-      "processing_time_ms": 3250.56529045105,
+      "reasoning": "The message contains hate speech and harassment towards an ethnic group, which is not allowed on the platform.",
+      "processing_time_ms": 2850.289821624756,
       "template_version": "1.0"
     }
   },
@@ -88,67 +37,16 @@
     "message": "And i moved here 46 years ago to get away from feminazis.",
     "ground_truth": "toxic",
     "prediction": "toxic",
-    "confidence": 0.95,
-    "latency": 3.1619012355804443,
+    "confidence": 0.9,
+    "latency": 2.9665331840515137,
     "message_length": 57,
     "categories": [],
-    "reasoning": "The user's statement contains hate speech towards a specific group of people (feminazis), which is considered toxic language.",
+    "reasoning": "The user's statement contains hate speech towards a specific group of people (feminazis), which is considered toxic.",
     "full_response": {
       "decision": "Toxic",
-      "confidence": 0.95,
-      "reasoning": "The user's statement contains hate speech towards a specific group of people (feminazis), which is considered toxic language.",
-      "processing_time_ms": 3155.2915573120117,
-      "template_version": "1.0"
-    }
-  },
-  {
-    "message": "I'd feel the same if I had Stalin's autograph; and his death count seriously approached that of Hitler!",
-    "ground_truth": "non_toxic",
-    "prediction": "non_toxic",
-    "confidence": 0.99,
-    "latency": 3.257207155227661,
-    "message_length": 103,
-    "categories": [],
-    "reasoning": "The message does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-    "full_response": {
-      "decision": "Non-Toxic",
-      "confidence": 0.99,
-      "reasoning": "The message does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-      "processing_time_ms": 3253.0837059020996,
-      "template_version": "1.0"
-    }
-  },
-  {
-    "message": "ICE chief's statement says its annual budget will be $7.9 billion, including \"$4.9 billion to expand detention capacity.\" Do we really want to pay that much money to detain people, most of them productive members of society who start businesses, pick our crops, mow our lawns, etc.? What happened to small government?",
-    "ground_truth": "non_toxic",
-    "prediction": "non_toxic",
-    "confidence": 1.0,
-    "latency": 3.368300199508667,
-    "message_length": 317,
-    "categories": [],
-    "reasoning": "The message does not contain any toxic language, hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-    "full_response": {
-      "decision": "Non-Toxic",
-      "confidence": 1.0,
-      "reasoning": "The message does not contain any toxic language, hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-      "processing_time_ms": 3363.7585639953613,
-      "template_version": "1.0"
-    }
-  },
-  {
-    "message": "You are free to believe what you like. However there is a burden of rationality inherent in conversation particularly public ones. Advancing arguments of a god should require that you engage with the following:\n\n1. Posit a set of axioms that exclude sought proof.\n2. Define god. \n3. Define existence. \n4. Show objective evidence that a god meets that criteria.\n5. Show that the result is significant! \n\nIMO.  Morality, just like god is likely a construct. It is an very important one, but a construct none the less. Arguments that rely on the most good, or the absoluteness of good are flawed. Humans certainly do not seem to be divine or special in any sense. It seems likely that we are simply cleverer animals. The initial formation of the universe is outside the boundaries of concrete knowledge. However the formation of the universe while including randomness, is not random.",
-    "ground_truth": "non_toxic",
-    "prediction": "non_toxic",
-    "confidence": 0.99,
-    "latency": 3.265500068664551,
-    "message_length": 881,
-    "categories": [],
-    "reasoning": "The message does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-    "full_response": {
-      "decision": "Non-Toxic",
-      "confidence": 0.99,
-      "reasoning": "The message does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-      "processing_time_ms": 3258.925437927246,
+      "confidence": 0.9,
+      "reasoning": "The user's statement contains hate speech towards a specific group of people (feminazis), which is considered toxic.",
+      "processing_time_ms": 2962.456464767456,
       "template_version": "1.0"
     }
   },
@@ -157,7 +55,7 @@
     "ground_truth": "toxic",
     "prediction": "non_toxic",
     "confidence": 0.95,
-    "latency": 3.273750066757202,
+    "latency": 3.179117202758789,
     "message_length": 75,
     "categories": [],
     "reasoning": "The message does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
@@ -165,92 +63,7 @@
       "decision": "Non-Toxic",
       "confidence": 0.95,
       "reasoning": "The message does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-      "processing_time_ms": 3268.29195022583,
-      "template_version": "1.0"
-    }
-  },
-  {
-    "message": "Exactly.  I was just reading a story about how Ed Norton made a fraction of what Brad Pitt did in Fight club.  Equal parts.  Equal face time doesn't warrant equal pay.  Their greed about what OTHERS were making will now undermine their whole bottom line.  Smart.",
-    "ground_truth": "non_toxic",
-    "prediction": "non_toxic",
-    "confidence": 0.99,
-    "latency": 3.725351333618164,
-    "message_length": 262,
-    "categories": [],
-    "reasoning": "The message expresses an opinion about salary inequality in the film industry, and does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-    "full_response": {
-      "decision": "Non-Toxic",
-      "confidence": 0.99,
-      "reasoning": "The message expresses an opinion about salary inequality in the film industry, and does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-      "processing_time_ms": 3720.151901245117,
-      "template_version": "1.0"
-    }
-  },
-  {
-    "message": "Merkel smart and progressive. Trump not in the least bit smart and utterly regressive. The US will be the unconditional loser as the world turns away, in everything from trade and tourism to science and collaboration. What an utter and avoidable waste. aMErica.",
-    "ground_truth": "toxic",
-    "prediction": "non_toxic",
-    "confidence": 0.99,
-    "latency": 3.4666759967803955,
-    "message_length": 261,
-    "categories": [],
-    "reasoning": "The message expresses an opinion and does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-    "full_response": {
-      "decision": "Non-Toxic",
-      "confidence": 0.99,
-      "reasoning": "The message expresses an opinion and does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-      "processing_time_ms": 3456.3944339752197,
-      "template_version": "1.0"
-    }
-  },
-  {
-    "message": "Political motivations, and parties aside. I would love to know peoples actual thoughts on this. Good. Bad? Could we actually get bipartisan support or is it a pipe dream. \n\nAdditionally, the idea of a high speed transit in the windsor to toronto, and maybe in the future toronto to montreal corridors (which is like half of Canada's population) is one that may be interesting. There isn't much debate that infrastructure like this can massively foster growth along the route, but there is also the price factor. People don't like it in their backyard. \n\nAlso, since this will be costly regardless, I would be curious price comparisons between HSR and Maglev. Mostly because the latter is more expensive but will require reduced maintenance costs whilst also having the advantage of being far quieter, likely reducing \"NIMBY\" BS. Not to mention it would be a great selling point of \"hey, look at our futuresque shit that travels at speeds that rival planes\".",
-    "ground_truth": "toxic",
-    "prediction": "non_toxic",
-    "confidence": 1.0,
-    "latency": 3.367475986480713,
-    "message_length": 957,
-    "categories": [],
-    "reasoning": "The message does not contain any toxic language, hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-    "full_response": {
-      "decision": "Non-Toxic",
-      "confidence": 1.0,
-      "reasoning": "The message does not contain any toxic language, hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-      "processing_time_ms": 3359.7195148468018,
-      "template_version": "1.0"
-    }
-  },
-  {
-    "message": "The Texans seem to have grit which is certainly lacking these days among those who would prefer to see them all suffering. The fact that the Federal folks were well organized and working well with the state and local folks must be driving those of you who want this to be more of a disaster so you can pin it on Trump. People should be marveling as I am at how all those folks are reaching out to help one another no matter skin color, flags, or political bent.\nI can't get over the people who want to see this turn into a worse disaster then it is just so they can crow about Texas getting what it deserved or how Tump failed. So far, people are co no together and helping each other.",
-    "ground_truth": "non_toxic",
-    "prediction": "non_toxic",
-    "confidence": 0.99,
-    "latency": 3.912827253341675,
-    "message_length": 685,
-    "categories": [],
-    "reasoning": "The message expresses positive sentiments towards community resilience and cooperation during a crisis, and does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-    "full_response": {
-      "decision": "Non-Toxic",
-      "confidence": 0.99,
-      "reasoning": "The message expresses positive sentiments towards community resilience and cooperation during a crisis, and does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-      "processing_time_ms": 3903.5065174102783,
-      "template_version": "1.0"
-    }
-  },
-  {
-    "message": "An altar server is not an acolyte.  That's been a misuse or collapse of categories for some time.",
-    "ground_truth": "non_toxic",
-    "prediction": "non_toxic",
-    "confidence": 1.0,
-    "latency": 3.2060868740081787,
-    "message_length": 97,
-    "categories": [],
-    "reasoning": "The message is a statement about religious terminology and does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
-    "full_response": {
-      "decision": "Non-Toxic",
-      "confidence": 1.0,
-      "reasoning": "The message is a statement about religious terminology and does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
-      "processing_time_ms": 3201.3912200927734,
+      "processing_time_ms": 3174.8926639556885,
       "template_version": "1.0"
     }
   },
@@ -259,15 +72,15 @@
     "ground_truth": "toxic",
     "prediction": "toxic",
     "confidence": 0.98,
-    "latency": 2.874035120010376,
+    "latency": 3.2419471740722656,
     "message_length": 205,
     "categories": [],
-    "reasoning": "The message contains hate speech and personal attacks towards an individual and his family.",
+    "reasoning": "The message contains hate speech and personal attacks towards an individual and his family. It is not spam or promotional content, and no personal information was shared.",
     "full_response": {
       "decision": "Toxic",
       "confidence": 0.98,
-      "reasoning": "The message contains hate speech and personal attacks towards an individual and his family.",
-      "processing_time_ms": 2865.666389465332,
+      "reasoning": "The message contains hate speech and personal attacks towards an individual and his family. It is not spam or promotional content, and no personal information was shared.",
+      "processing_time_ms": 3237.100601196289,
       "template_version": "1.0"
     }
   },
@@ -276,7 +89,7 @@
     "ground_truth": "toxic",
     "prediction": "non_toxic",
     "confidence": 0.98,
-    "latency": 3.279183864593506,
+    "latency": 3.146825075149536,
     "message_length": 628,
     "categories": [],
     "reasoning": "The message does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
@@ -284,24 +97,7 @@
       "decision": "Non-Toxic",
       "confidence": 0.98,
       "reasoning": "The message does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-      "processing_time_ms": 3269.4461345672607,
-      "template_version": "1.0"
-    }
-  },
-  {
-    "message": "Are you really naive enough to believe that no charges equals no corruption? But I could settle for \"lying\" and \"self-serving\".",
-    "ground_truth": "non_toxic",
-    "prediction": "non_toxic",
-    "confidence": 0.99,
-    "latency": 3.2628860473632812,
-    "message_length": 127,
-    "categories": [],
-    "reasoning": "The message does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-    "full_response": {
-      "decision": "Non-Toxic",
-      "confidence": 0.99,
-      "reasoning": "The message does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-      "processing_time_ms": 3255.29408454895,
+      "processing_time_ms": 3139.6055221557617,
       "template_version": "1.0"
     }
   },
@@ -309,33 +105,16 @@
     "message": "\" We also have to come up with punishment that's far quicker \"\n\nWe have to make sure he is guilty first. Where are Trumps minders to stop him making a pillock of himself?",
     "ground_truth": "toxic",
     "prediction": "non_toxic",
-    "confidence": 0.95,
-    "latency": 3.437669038772583,
+    "confidence": 0.99,
+    "latency": 3.271778106689453,
     "message_length": 170,
     "categories": [],
     "reasoning": "The message does not contain any toxic language, hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
     "full_response": {
       "decision": "Non-Toxic",
-      "confidence": 0.95,
+      "confidence": 0.99,
       "reasoning": "The message does not contain any toxic language, hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-      "processing_time_ms": 3431.166648864746,
-      "template_version": "1.0"
-    }
-  },
-  {
-    "message": "In the unlikely  event Nafta collapses will Canada sign a free trade deal with Mexico with its low cost labor?",
-    "ground_truth": "non_toxic",
-    "prediction": "non_toxic",
-    "confidence": 1.0,
-    "latency": 2.9923369884490967,
-    "message_length": 110,
-    "categories": [],
-    "reasoning": "The message does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
-    "full_response": {
-      "decision": "Non-Toxic",
-      "confidence": 1.0,
-      "reasoning": "The message does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
-      "processing_time_ms": 2987.5850677490234,
+      "processing_time_ms": 3264.0209197998047,
       "template_version": "1.0"
     }
   },
@@ -344,7 +123,7 @@
     "ground_truth": "toxic",
     "prediction": "non_toxic",
     "confidence": 1.0,
-    "latency": 3.358916997909546,
+    "latency": 3.2423980236053467,
     "message_length": 194,
     "categories": [],
     "reasoning": "The message does not contain any toxic language, hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
@@ -352,7 +131,7 @@
       "decision": "Non-Toxic",
       "confidence": 1.0,
       "reasoning": "The message does not contain any toxic language, hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-      "processing_time_ms": 3354.5174598693848,
+      "processing_time_ms": 3236.042261123657,
       "template_version": "1.0"
     }
   },
@@ -360,16 +139,16 @@
     "message": "Your right ...the crazy Mormons in Utah get into a lot of cover up stuff just because of their insane beliefs.",
     "ground_truth": "toxic",
     "prediction": "non_toxic",
-    "confidence": 0.95,
-    "latency": 3.771320104598999,
+    "confidence": 0.9,
+    "latency": 4.123374700546265,
     "message_length": 110,
     "categories": [],
-    "reasoning": "The message expresses an opinion about a group of people and their beliefs, which does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
+    "reasoning": "The message expresses an opinion about a specific group of people and their beliefs, which does not constitute toxic language, hate speech, or threats. However, it's important to note that making generalizations about a group of people can be harmful and should be avoided.",
     "full_response": {
       "decision": "Non-Toxic",
-      "confidence": 0.95,
-      "reasoning": "The message expresses an opinion about a group of people and their beliefs, which does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-      "processing_time_ms": 3764.3468379974365,
+      "confidence": 0.9,
+      "reasoning": "The message expresses an opinion about a specific group of people and their beliefs, which does not constitute toxic language, hate speech, or threats. However, it's important to note that making generalizations about a group of people can be harmful and should be avoided.",
+      "processing_time_ms": 4116.207838058472,
       "template_version": "1.0"
     }
   },
@@ -378,7 +157,7 @@
     "ground_truth": "toxic",
     "prediction": "toxic",
     "confidence": 0.9,
-    "latency": 2.8009369373321533,
+    "latency": 2.700444221496582,
     "message_length": 44,
     "categories": [],
     "reasoning": "The message contains toxic language in the form of name-calling and bullying.",
@@ -386,41 +165,24 @@
       "decision": "Toxic",
       "confidence": 0.9,
       "reasoning": "The message contains toxic language in the form of name-calling and bullying.",
-      "processing_time_ms": 2792.060136795044,
+      "processing_time_ms": 2693.089485168457,
       "template_version": "1.0"
     }
   },
   {
     "message": "That's great. You know he's just aching to have a few of those! Sieg heil, Kim Jong Drumpf.",
-    "ground_truth": "non_toxic",
+    "ground_truth": "toxic",
     "prediction": "toxic",
     "confidence": 0.99,
-    "latency": 3.2572579383850098,
+    "latency": 3.5421831607818604,
     "message_length": 91,
     "categories": [],
-    "reasoning": "The message contains hate speech towards specific individuals (Kim Jong Un and Donald Trump), which is toxic and not allowed on the platform.",
+    "reasoning": "The message contains hate speech towards specific individuals (Kim Jong Un and Donald Trump), and the use of the Nazi salute 'Sieg Heil' is highly offensive and disrespectful.",
     "full_response": {
       "decision": "Toxic",
       "confidence": 0.99,
-      "reasoning": "The message contains hate speech towards specific individuals (Kim Jong Un and Donald Trump), which is toxic and not allowed on the platform.",
-      "processing_time_ms": 3251.890182495117,
-      "template_version": "1.0"
-    }
-  },
-  {
-    "message": "i am!!",
-    "ground_truth": "non_toxic",
-    "prediction": "non_toxic",
-    "confidence": 1.0,
-    "latency": 3.0990569591522217,
-    "message_length": 6,
-    "categories": [],
-    "reasoning": "The message 'i am!!' does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
-    "full_response": {
-      "decision": "Non-Toxic",
-      "confidence": 1.0,
-      "reasoning": "The message 'i am!!' does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
-      "processing_time_ms": 3091.6500091552734,
+      "reasoning": "The message contains hate speech towards specific individuals (Kim Jong Un and Donald Trump), and the use of the Nazi salute 'Sieg Heil' is highly offensive and disrespectful.",
+      "processing_time_ms": 3535.2180004119873,
       "template_version": "1.0"
     }
   },
@@ -429,7 +191,7 @@
     "ground_truth": "toxic",
     "prediction": "non_toxic",
     "confidence": 0.99,
-    "latency": 3.6541380882263184,
+    "latency": 3.587275981903076,
     "message_length": 85,
     "categories": [],
     "reasoning": "The message expresses a negative opinion about a public figure, which is not toxic or hate speech. It does not contain any spam or promotional content, personal information sharing, or inappropriate content.",
@@ -437,16 +199,16 @@
       "decision": "Non-Toxic",
       "confidence": 0.99,
       "reasoning": "The message expresses a negative opinion about a public figure, which is not toxic or hate speech. It does not contain any spam or promotional content, personal information sharing, or inappropriate content.",
-      "processing_time_ms": 3648.231029510498,
+      "processing_time_ms": 3580.988883972168,
       "template_version": "1.0"
     }
   },
   {
     "message": "You did not, or can not, read my comment.  So how about having a literate friend read it to you?\n\nDespite what Sean Hannity said, the investigation staff is still being hired, so it's idiotic to already expect results.\n\nNone of the investigations underway have released any kind of report.  Nothing.  So you might consider rethinking your confidence that nothing will be found.",
-    "ground_truth": "non_toxic",
+    "ground_truth": "toxic",
     "prediction": "non_toxic",
     "confidence": 0.99,
-    "latency": 3.3515849113464355,
+    "latency": 3.144439935684204,
     "message_length": 377,
     "categories": [],
     "reasoning": "The message does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
@@ -454,24 +216,7 @@
       "decision": "Non-Toxic",
       "confidence": 0.99,
       "reasoning": "The message does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-      "processing_time_ms": 3343.942165374756,
-      "template_version": "1.0"
-    }
-  },
-  {
-    "message": "So, they're saying that non-white people are the same, and just any old\"PoC\" will do? \"Your beliefs, experiences and opinions don't matter, we just need to tick off your colour on our rainbow chart. Oh, would you mind posing for a photo?\" I would have thought institutions of learning would prize diversity of thought over anything else (\"black people all think the same, just make sure we've got a couple to show off\")\n\n...and do they realize they're all chasing the same very small pool of candidates? Look, I know they don't mean East Asians when they say diversity (they're honorary white people because they're successful despite all this white supremacy), so that leaves about 10 % of the total population of Canadians. And that's just raw numbers, not filtering for age, accreditation, geography, etc. Black Canadians are about 3% of the total population. It's simple math, all of our universities will not be able to be as diverse as they want to be.",
-    "ground_truth": "non_toxic",
-    "prediction": "toxic",
-    "confidence": 0.98,
-    "latency": 3.1144580841064453,
-    "message_length": 958,
-    "categories": [],
-    "reasoning": "The message contains derogatory language towards specific racial groups and expresses discriminatory views, which falls under toxicity.",
-    "full_response": {
-      "decision": "Toxic",
-      "confidence": 0.98,
-      "reasoning": "The message contains derogatory language towards specific racial groups and expresses discriminatory views, which falls under toxicity.",
-      "processing_time_ms": 3109.433889389038,
+      "processing_time_ms": 3138.7903690338135,
       "template_version": "1.0"
     }
   },
@@ -480,24 +225,24 @@
     "ground_truth": "toxic",
     "prediction": "non_toxic",
     "confidence": 0.99,
-    "latency": 4.130720853805542,
+    "latency": 3.87528920173645,
     "message_length": 241,
     "categories": [],
-    "reasoning": "The message contains name-calling and political statements, but it does not contain any direct threats, hate speech, or personal attacks that could be considered toxic or harmful. It is a common pattern in online discussions and does not violate any community guidelines.",
+    "reasoning": "The message contains name-calling and political statements, but it does not contain any hate speech, threats, or personal attacks that would be considered toxic. It is a common pattern in online discussions and does not violate any community guidelines.",
     "full_response": {
       "decision": "Non-Toxic",
       "confidence": 0.99,
-      "reasoning": "The message contains name-calling and political statements, but it does not contain any direct threats, hate speech, or personal attacks that could be considered toxic or harmful. It is a common pattern in online discussions and does not violate any community guidelines.",
-      "processing_time_ms": 4125.261306762695,
+      "reasoning": "The message contains name-calling and political statements, but it does not contain any hate speech, threats, or personal attacks that would be considered toxic. It is a common pattern in online discussions and does not violate any community guidelines.",
+      "processing_time_ms": 3868.952751159668,
       "template_version": "1.0"
     }
   },
   {
     "message": "My veracity was not only proven but upheld by SCOTUS.   Yours on the other hand is in tatters and you\u2019re stopping to ad hominem attacks.",
-    "ground_truth": "non_toxic",
+    "ground_truth": "toxic",
     "prediction": "non_toxic",
     "confidence": 0.99,
-    "latency": 3.4397268295288086,
+    "latency": 3.2502281665802,
     "message_length": 136,
     "categories": [],
     "reasoning": "The message does not contain any toxic language, hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
@@ -505,75 +250,7 @@
       "decision": "Non-Toxic",
       "confidence": 0.99,
       "reasoning": "The message does not contain any toxic language, hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-      "processing_time_ms": 3433.49289894104,
-      "template_version": "1.0"
-    }
-  },
-  {
-    "message": "So if my investments decline is Morneau going to let me deduct the loss against my employment income?   Why take any risk if Morneau wants to extort the profits?",
-    "ground_truth": "non_toxic",
-    "prediction": "non_toxic",
-    "confidence": 0.99,
-    "latency": 3.70658802986145,
-    "message_length": 161,
-    "categories": [],
-    "reasoning": "The message is a question about taxation and does not contain any toxic language, hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-    "full_response": {
-      "decision": "Non-Toxic",
-      "confidence": 0.99,
-      "reasoning": "The message is a question about taxation and does not contain any toxic language, hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-      "processing_time_ms": 3698.723316192627,
-      "template_version": "1.0"
-    }
-  },
-  {
-    "message": "If the media had had its way, Donald Trump wouldn't have been invited to a single deabate....until they discovered the difference in their ratings when he was there and when he wasn't.  OLive is just trying to game the system; nothing to see here, just move along.  Business as usual.  We know best which candidates \"clearly stand out from the crowd\".",
-    "ground_truth": "non_toxic",
-    "prediction": "non_toxic",
-    "confidence": 0.98,
-    "latency": 3.2896509170532227,
-    "message_length": 351,
-    "categories": [],
-    "reasoning": "The message does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-    "full_response": {
-      "decision": "Non-Toxic",
-      "confidence": 0.98,
-      "reasoning": "The message does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-      "processing_time_ms": 3281.2588214874268,
-      "template_version": "1.0"
-    }
-  },
-  {
-    "message": "Trump, always the equal opportunity offender.",
-    "ground_truth": "toxic",
-    "prediction": "non_toxic",
-    "confidence": 0.99,
-    "latency": 3.3792529106140137,
-    "message_length": 45,
-    "categories": [],
-    "reasoning": "The message does not contain any toxic language, hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-    "full_response": {
-      "decision": "Non-Toxic",
-      "confidence": 0.99,
-      "reasoning": "The message does not contain any toxic language, hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-      "processing_time_ms": 3371.737480163574,
-      "template_version": "1.0"
-    }
-  },
-  {
-    "message": "I know first hand what this man has done .He made it impossible for me to get clean and try and become a asset to the community I had cared about so much.He did not care one bit that i was productive for 11 years as asst produce manger. at sarrs market place.That when it closed my life went upside down.HE only cared about my sickness. I have bin in a long term treatment center out of town to try and get some kind of life back but my heart will always belong to Port Angles.Its not all his fault but I feel he has don more harm than good.And Karma always comes around.",
-    "ground_truth": "non_toxic",
-    "prediction": "non_toxic",
-    "confidence": 0.98,
-    "latency": 3.826179027557373,
-    "message_length": 571,
-    "categories": [],
-    "reasoning": "The message expresses personal experiences and emotions, which is not considered toxic or harmful. There is no hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-    "full_response": {
-      "decision": "Non-Toxic",
-      "confidence": 0.98,
-      "reasoning": "The message expresses personal experiences and emotions, which is not considered toxic or harmful. There is no hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-      "processing_time_ms": 3819.8208808898926,
+      "processing_time_ms": 3245.3174591064453,
       "template_version": "1.0"
     }
   },
@@ -582,7 +259,7 @@
     "ground_truth": "toxic",
     "prediction": "toxic",
     "confidence": 0.98,
-    "latency": 2.8798532485961914,
+    "latency": 2.7612032890319824,
     "message_length": 142,
     "categories": [],
     "reasoning": "The message contains hate speech and harassment towards an individual based on their perceived sexual orientation.",
@@ -590,24 +267,24 @@
       "decision": "Toxic",
       "confidence": 0.98,
       "reasoning": "The message contains hate speech and harassment towards an individual based on their perceived sexual orientation.",
-      "processing_time_ms": 2876.683235168457,
+      "processing_time_ms": 2755.1403045654297,
       "template_version": "1.0"
     }
   },
   {
     "message": "Any proof for these comments.  Trudeau has given no indication that anything you say in your comment has validity.  Name one incident.  Anything at all.  No, huh.",
-    "ground_truth": "non_toxic",
+    "ground_truth": "toxic",
     "prediction": "non_toxic",
-    "confidence": 1.0,
-    "latency": 3.5599770545959473,
+    "confidence": 0.99,
+    "latency": 3.6081361770629883,
     "message_length": 162,
     "categories": [],
     "reasoning": "The message is a request for evidence and does not contain any toxic language, hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
     "full_response": {
       "decision": "Non-Toxic",
-      "confidence": 1.0,
+      "confidence": 0.99,
       "reasoning": "The message is a request for evidence and does not contain any toxic language, hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-      "processing_time_ms": 3554.558753967285,
+      "processing_time_ms": 3600.7707118988037,
       "template_version": "1.0"
     }
   },
@@ -616,15 +293,15 @@
     "ground_truth": "toxic",
     "prediction": "non_toxic",
     "confidence": 0.99,
-    "latency": 3.4415149688720703,
+    "latency": 3.166583776473999,
     "message_length": 86,
     "categories": [],
-    "reasoning": "The message does not contain any toxic language, hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
+    "reasoning": "The message does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
     "full_response": {
       "decision": "Non-Toxic",
       "confidence": 0.99,
-      "reasoning": "The message does not contain any toxic language, hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-      "processing_time_ms": 3433.3624839782715,
+      "reasoning": "The message does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
+      "processing_time_ms": 3159.694194793701,
       "template_version": "1.0"
     }
   },
@@ -633,7 +310,7 @@
     "ground_truth": "toxic",
     "prediction": "non_toxic",
     "confidence": 0.98,
-    "latency": 3.8243300914764404,
+    "latency": 3.6262128353118896,
     "message_length": 128,
     "categories": [],
     "reasoning": "The message does not contain any toxic language, hate speech, threats, or harassment. It is a response to a previous comment and appears to be a clarification and education on a specific topic.",
@@ -641,7 +318,313 @@
       "decision": "Non-Toxic",
       "confidence": 0.98,
       "reasoning": "The message does not contain any toxic language, hate speech, threats, or harassment. It is a response to a previous comment and appears to be a clarification and education on a specific topic.",
-      "processing_time_ms": 3816.016435623169,
+      "processing_time_ms": 3619.014263153076,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "Surely the Queen of radical, alt-Left, anti-American, socialist, Progressive Democrat hubris either breathes only through her far Left nostril; or else, delusionally self-identifies having two far Left nostrils.",
+    "ground_truth": "toxic",
+    "prediction": "toxic",
+    "confidence": 0.9,
+    "latency": 2.8287200927734375,
+    "message_length": 211,
+    "categories": [],
+    "reasoning": "The message contains derogatory and divisive language towards a specific individual, which can be considered toxic.",
+    "full_response": {
+      "decision": "Toxic",
+      "confidence": 0.9,
+      "reasoning": "The message contains derogatory and divisive language towards a specific individual, which can be considered toxic.",
+      "processing_time_ms": 2822.565793991089,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "Man o man, what has our media become, and who hires these writers, for lack of a better word.\n\nStarting an article with stating such an alarming problem, without any proof or context, just IT IS believe me...and then going on to lecture what should be done...\n\nWhat happen to just reporting the ACTUALLY, FACTUAL news as it was happening in reality...\n\nWhy Hype and make everything so Alarming..?\n\nCan not wait for media to regain a level of professionalism again...\n\nHire some writers with integrity instead of many fancy degrees from gender studies classes...",
+    "ground_truth": "non_toxic",
+    "prediction": "non_toxic",
+    "confidence": 0.99,
+    "latency": 3.585200071334839,
+    "message_length": 561,
+    "categories": [],
+    "reasoning": "The message expresses criticism towards the media and its writers, but it does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
+    "full_response": {
+      "decision": "Non-Toxic",
+      "confidence": 0.99,
+      "reasoning": "The message expresses criticism towards the media and its writers, but it does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
+      "processing_time_ms": 3580.0137519836426,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "I'd feel the same if I had Stalin's autograph; and his death count seriously approached that of Hitler!",
+    "ground_truth": "non_toxic",
+    "prediction": "non_toxic",
+    "confidence": 0.99,
+    "latency": 3.1315813064575195,
+    "message_length": 103,
+    "categories": [],
+    "reasoning": "The message does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
+    "full_response": {
+      "decision": "Non-Toxic",
+      "confidence": 0.99,
+      "reasoning": "The message does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
+      "processing_time_ms": 3124.5880126953125,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "ICE chief's statement says its annual budget will be $7.9 billion, including \"$4.9 billion to expand detention capacity.\" Do we really want to pay that much money to detain people, most of them productive members of society who start businesses, pick our crops, mow our lawns, etc.? What happened to small government?",
+    "ground_truth": "non_toxic",
+    "prediction": "non_toxic",
+    "confidence": 1.0,
+    "latency": 2.8143818378448486,
+    "message_length": 317,
+    "categories": [],
+    "reasoning": "The message does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
+    "full_response": {
+      "decision": "Non-Toxic",
+      "confidence": 1.0,
+      "reasoning": "The message does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
+      "processing_time_ms": 2808.150291442871,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "You are free to believe what you like. However there is a burden of rationality inherent in conversation particularly public ones. Advancing arguments of a god should require that you engage with the following:\n\n1. Posit a set of axioms that exclude sought proof.\n2. Define god. \n3. Define existence. \n4. Show objective evidence that a god meets that criteria.\n5. Show that the result is significant! \n\nIMO.  Morality, just like god is likely a construct. It is an very important one, but a construct none the less. Arguments that rely on the most good, or the absoluteness of good are flawed. Humans certainly do not seem to be divine or special in any sense. It seems likely that we are simply cleverer animals. The initial formation of the universe is outside the boundaries of concrete knowledge. However the formation of the universe while including randomness, is not random.",
+    "ground_truth": "non_toxic",
+    "prediction": "non_toxic",
+    "confidence": 0.99,
+    "latency": 3.1489648818969727,
+    "message_length": 881,
+    "categories": [],
+    "reasoning": "The message does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
+    "full_response": {
+      "decision": "Non-Toxic",
+      "confidence": 0.99,
+      "reasoning": "The message does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
+      "processing_time_ms": 3143.4786319732666,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "Exactly.  I was just reading a story about how Ed Norton made a fraction of what Brad Pitt did in Fight club.  Equal parts.  Equal face time doesn't warrant equal pay.  Their greed about what OTHERS were making will now undermine their whole bottom line.  Smart.",
+    "ground_truth": "non_toxic",
+    "prediction": "non_toxic",
+    "confidence": 0.99,
+    "latency": 3.5873188972473145,
+    "message_length": 262,
+    "categories": [],
+    "reasoning": "The message expresses an opinion about salary disparity in the film industry and does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
+    "full_response": {
+      "decision": "Non-Toxic",
+      "confidence": 0.99,
+      "reasoning": "The message expresses an opinion about salary disparity in the film industry and does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
+      "processing_time_ms": 3581.415891647339,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "Merkel smart and progressive. Trump not in the least bit smart and utterly regressive. The US will be the unconditional loser as the world turns away, in everything from trade and tourism to science and collaboration. What an utter and avoidable waste. aMErica.",
+    "ground_truth": "non_toxic",
+    "prediction": "non_toxic",
+    "confidence": 0.99,
+    "latency": 3.312800884246826,
+    "message_length": 261,
+    "categories": [],
+    "reasoning": "The message expresses an opinion and does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
+    "full_response": {
+      "decision": "Non-Toxic",
+      "confidence": 0.99,
+      "reasoning": "The message expresses an opinion and does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
+      "processing_time_ms": 3307.4095249176025,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "Political motivations, and parties aside. I would love to know peoples actual thoughts on this. Good. Bad? Could we actually get bipartisan support or is it a pipe dream. \n\nAdditionally, the idea of a high speed transit in the windsor to toronto, and maybe in the future toronto to montreal corridors (which is like half of Canada's population) is one that may be interesting. There isn't much debate that infrastructure like this can massively foster growth along the route, but there is also the price factor. People don't like it in their backyard. \n\nAlso, since this will be costly regardless, I would be curious price comparisons between HSR and Maglev. Mostly because the latter is more expensive but will require reduced maintenance costs whilst also having the advantage of being far quieter, likely reducing \"NIMBY\" BS. Not to mention it would be a great selling point of \"hey, look at our futuresque shit that travels at speeds that rival planes\".",
+    "ground_truth": "non_toxic",
+    "prediction": "non_toxic",
+    "confidence": 1.0,
+    "latency": 3.2225611209869385,
+    "message_length": 957,
+    "categories": [],
+    "reasoning": "The message does not contain any toxic language, hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
+    "full_response": {
+      "decision": "Non-Toxic",
+      "confidence": 1.0,
+      "reasoning": "The message does not contain any toxic language, hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
+      "processing_time_ms": 3215.5165672302246,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "The Texans seem to have grit which is certainly lacking these days among those who would prefer to see them all suffering. The fact that the Federal folks were well organized and working well with the state and local folks must be driving those of you who want this to be more of a disaster so you can pin it on Trump. People should be marveling as I am at how all those folks are reaching out to help one another no matter skin color, flags, or political bent.\nI can't get over the people who want to see this turn into a worse disaster then it is just so they can crow about Texas getting what it deserved or how Tump failed. So far, people are co no together and helping each other.",
+    "ground_truth": "non_toxic",
+    "prediction": "non_toxic",
+    "confidence": 0.99,
+    "latency": 3.791652202606201,
+    "message_length": 685,
+    "categories": [],
+    "reasoning": "The message expresses positive sentiments towards community resilience and cooperation during a crisis. No toxic language, hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content was detected.",
+    "full_response": {
+      "decision": "Non-Toxic",
+      "confidence": 0.99,
+      "reasoning": "The message expresses positive sentiments towards community resilience and cooperation during a crisis. No toxic language, hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content was detected.",
+      "processing_time_ms": 3784.4438552856445,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "An altar server is not an acolyte.  That's been a misuse or collapse of categories for some time.",
+    "ground_truth": "non_toxic",
+    "prediction": "non_toxic",
+    "confidence": 1.0,
+    "latency": 3.0836169719696045,
+    "message_length": 97,
+    "categories": [],
+    "reasoning": "The message is a statement about religious terminology and does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
+    "full_response": {
+      "decision": "Non-Toxic",
+      "confidence": 1.0,
+      "reasoning": "The message is a statement about religious terminology and does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
+      "processing_time_ms": 3076.207399368286,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "Are you really naive enough to believe that no charges equals no corruption? But I could settle for \"lying\" and \"self-serving\".",
+    "ground_truth": "non_toxic",
+    "prediction": "non_toxic",
+    "confidence": 0.99,
+    "latency": 3.1903769969940186,
+    "message_length": 127,
+    "categories": [],
+    "reasoning": "The message does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
+    "full_response": {
+      "decision": "Non-Toxic",
+      "confidence": 0.99,
+      "reasoning": "The message does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
+      "processing_time_ms": 3184.070587158203,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "In the unlikely  event Nafta collapses will Canada sign a free trade deal with Mexico with its low cost labor?",
+    "ground_truth": "non_toxic",
+    "prediction": "non_toxic",
+    "confidence": 1.0,
+    "latency": 2.89652681350708,
+    "message_length": 110,
+    "categories": [],
+    "reasoning": "The message does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
+    "full_response": {
+      "decision": "Non-Toxic",
+      "confidence": 1.0,
+      "reasoning": "The message does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
+      "processing_time_ms": 2891.390085220337,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "i am!!",
+    "ground_truth": "non_toxic",
+    "prediction": "non_toxic",
+    "confidence": 1.0,
+    "latency": 3.106534004211426,
+    "message_length": 6,
+    "categories": [],
+    "reasoning": "The message 'i am!!' does not contain any toxic language, spam, promotional content, personal information sharing, or inappropriate content.",
+    "full_response": {
+      "decision": "Non-Toxic",
+      "confidence": 1.0,
+      "reasoning": "The message 'i am!!' does not contain any toxic language, spam, promotional content, personal information sharing, or inappropriate content.",
+      "processing_time_ms": 3101.9113063812256,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "So, they're saying that non-white people are the same, and just any old\"PoC\" will do? \"Your beliefs, experiences and opinions don't matter, we just need to tick off your colour on our rainbow chart. Oh, would you mind posing for a photo?\" I would have thought institutions of learning would prize diversity of thought over anything else (\"black people all think the same, just make sure we've got a couple to show off\")\n\n...and do they realize they're all chasing the same very small pool of candidates? Look, I know they don't mean East Asians when they say diversity (they're honorary white people because they're successful despite all this white supremacy), so that leaves about 10 % of the total population of Canadians. And that's just raw numbers, not filtering for age, accreditation, geography, etc. Black Canadians are about 3% of the total population. It's simple math, all of our universities will not be able to be as diverse as they want to be.",
+    "ground_truth": "non_toxic",
+    "prediction": "toxic",
+    "confidence": 0.98,
+    "latency": 2.9882471561431885,
+    "message_length": 958,
+    "categories": [],
+    "reasoning": "The message contains derogatory language towards specific racial groups and expresses discriminatory views, which falls under toxicity.",
+    "full_response": {
+      "decision": "Toxic",
+      "confidence": 0.98,
+      "reasoning": "The message contains derogatory language towards specific racial groups and expresses discriminatory views, which falls under toxicity.",
+      "processing_time_ms": 2981.2092781066895,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "So if my investments decline is Morneau going to let me deduct the loss against my employment income?   Why take any risk if Morneau wants to extort the profits?",
+    "ground_truth": "non_toxic",
+    "prediction": "non_toxic",
+    "confidence": 0.99,
+    "latency": 3.1057281494140625,
+    "message_length": 161,
+    "categories": [],
+    "reasoning": "The message is a question about taxation policy and does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
+    "full_response": {
+      "decision": "Non-Toxic",
+      "confidence": 0.99,
+      "reasoning": "The message is a question about taxation policy and does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
+      "processing_time_ms": 3100.2838611602783,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "If the media had had its way, Donald Trump wouldn't have been invited to a single deabate....until they discovered the difference in their ratings when he was there and when he wasn't.  OLive is just trying to game the system; nothing to see here, just move along.  Business as usual.  We know best which candidates \"clearly stand out from the crowd\".",
+    "ground_truth": "non_toxic",
+    "prediction": "non_toxic",
+    "confidence": 0.99,
+    "latency": 3.3646740913391113,
+    "message_length": 351,
+    "categories": [],
+    "reasoning": "The message does not contain any toxic language, hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
+    "full_response": {
+      "decision": "Non-Toxic",
+      "confidence": 0.99,
+      "reasoning": "The message does not contain any toxic language, hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
+      "processing_time_ms": 3358.159065246582,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "Trump, always the equal opportunity offender.",
+    "ground_truth": "non_toxic",
+    "prediction": "non_toxic",
+    "confidence": 0.99,
+    "latency": 3.2520439624786377,
+    "message_length": 45,
+    "categories": [],
+    "reasoning": "The message does not contain any toxic language, hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
+    "full_response": {
+      "decision": "Non-Toxic",
+      "confidence": 0.99,
+      "reasoning": "The message does not contain any toxic language, hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
+      "processing_time_ms": 3245.4769611358643,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "I know first hand what this man has done .He made it impossible for me to get clean and try and become a asset to the community I had cared about so much.He did not care one bit that i was productive for 11 years as asst produce manger. at sarrs market place.That when it closed my life went upside down.HE only cared about my sickness. I have bin in a long term treatment center out of town to try and get some kind of life back but my heart will always belong to Port Angles.Its not all his fault but I feel he has don more harm than good.And Karma always comes around.",
+    "ground_truth": "non_toxic",
+    "prediction": "non_toxic",
+    "confidence": 0.98,
+    "latency": 3.5688440799713135,
+    "message_length": 571,
+    "categories": [],
+    "reasoning": "The message expresses personal experiences and emotions, and does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
+    "full_response": {
+      "decision": "Non-Toxic",
+      "confidence": 0.98,
+      "reasoning": "The message expresses personal experiences and emotions, and does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
+      "processing_time_ms": 3561.9752407073975,
       "template_version": "1.0"
     }
   },
@@ -650,7 +633,7 @@
     "ground_truth": "non_toxic",
     "prediction": "non_toxic",
     "confidence": 0.95,
-    "latency": 3.2647860050201416,
+    "latency": 3.1688270568847656,
     "message_length": 135,
     "categories": [],
     "reasoning": "The message does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
@@ -658,24 +641,381 @@
       "decision": "Non-Toxic",
       "confidence": 0.95,
       "reasoning": "The message does not contain any hate speech, harassment, threats, spam, promotional content, personal information sharing, or inappropriate content.",
-      "processing_time_ms": 3255.606174468994,
+      "processing_time_ms": 3157.7157974243164,
       "template_version": "1.0"
     }
   },
   {
-    "message": "Surely the Queen of radical, alt-Left, anti-American, socialist, Progressive Democrat hubris either breathes only through her far Left nostril; or else, delusionally self-identifies having two far Left nostrils.",
+    "message": "While I understand that perspectives can differ widely on matters of policy, it is essential to ground arguments in factual evidence rather than unverified assumptions. In this case, the supporting data appears to be lacking, which undermines the validity of your stance.",
     "ground_truth": "non_toxic",
-    "prediction": "toxic",
-    "confidence": 0.9,
-    "latency": 2.9536449909210205,
-    "message_length": 211,
+    "prediction": "non_toxic",
+    "confidence": 1.0,
+    "latency": 2.8292229175567627,
+    "message_length": 271,
     "categories": [],
-    "reasoning": "The message contains derogatory and divisive language towards a specific individual, which can be considered toxic.",
+    "reasoning": "The message does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
+    "full_response": {
+      "decision": "Non-Toxic",
+      "confidence": 1.0,
+      "reasoning": "The message does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
+      "processing_time_ms": 2822.1113681793213,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "This discussion thread highlights the importance of nuanced understanding when interpreting statistical data. Simplistic conclusions drawn from incomplete datasets risk misleading readers and misinforming the debate.",
+    "ground_truth": "non_toxic",
+    "prediction": "non_toxic",
+    "confidence": 1.0,
+    "latency": 2.7957911491394043,
+    "message_length": 216,
+    "categories": [],
+    "reasoning": "The message does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
+    "full_response": {
+      "decision": "Non-Toxic",
+      "confidence": 1.0,
+      "reasoning": "The message does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
+      "processing_time_ms": 2782.5193405151367,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "You are absolutely worthless and should disappear",
+    "ground_truth": "toxic",
+    "prediction": "toxic",
+    "confidence": 0.99,
+    "latency": 2.750596046447754,
+    "message_length": 49,
+    "categories": [],
+    "reasoning": "The message contains hate speech and is intended to harm the user's self-worth.",
     "full_response": {
       "decision": "Toxic",
-      "confidence": 0.9,
-      "reasoning": "The message contains derogatory and divisive language towards a specific individual, which can be considered toxic.",
-      "processing_time_ms": 2945.2028274536133,
+      "confidence": 0.99,
+      "reasoning": "The message contains hate speech and is intended to harm the user's self-worth.",
+      "processing_time_ms": 2743.147373199463,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "I hate you so much, you make me sick",
+    "ground_truth": "toxic",
+    "prediction": "toxic",
+    "confidence": 0.98,
+    "latency": 2.439742088317871,
+    "message_length": 36,
+    "categories": [],
+    "reasoning": "The user expressed hate speech towards another user.",
+    "full_response": {
+      "decision": "Toxic",
+      "confidence": 0.98,
+      "reasoning": "The user expressed hate speech towards another user.",
+      "processing_time_ms": 2432.6133728027344,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "Go kill yourself, nobody wants you here",
+    "ground_truth": "toxic",
+    "prediction": "toxic",
+    "confidence": 0.99,
+    "latency": 2.7829718589782715,
+    "message_length": 39,
+    "categories": [],
+    "reasoning": "The message contains hate speech and threats towards the user, which is toxic and harmful.",
+    "full_response": {
+      "decision": "Toxic",
+      "confidence": 0.99,
+      "reasoning": "The message contains hate speech and threats towards the user, which is toxic and harmful.",
+      "processing_time_ms": 2775.2513885498047,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "You're the dumbest person I've ever met",
+    "ground_truth": "toxic",
+    "prediction": "toxic",
+    "confidence": 0.98,
+    "latency": 2.5014803409576416,
+    "message_length": 39,
+    "categories": [],
+    "reasoning": "The message contains hate speech and personal insults.",
+    "full_response": {
+      "decision": "Toxic",
+      "confidence": 0.98,
+      "reasoning": "The message contains hate speech and personal insults.",
+      "processing_time_ms": 2495.671033859253,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "I hope you suffer for the rest of your life",
+    "ground_truth": "toxic",
+    "prediction": "toxic",
+    "confidence": 0.98,
+    "latency": 2.5593819618225098,
+    "message_length": 43,
+    "categories": [],
+    "reasoning": "The message contains a threat and hate speech towards an individual.",
+    "full_response": {
+      "decision": "Toxic",
+      "confidence": 0.98,
+      "reasoning": "The message contains a threat and hate speech towards an individual.",
+      "processing_time_ms": 2554.614782333374,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "You're a complete waste of space and oxygen",
+    "ground_truth": "toxic",
+    "prediction": "toxic",
+    "confidence": 0.98,
+    "latency": 2.448629140853882,
+    "message_length": 43,
+    "categories": [],
+    "reasoning": "The message contains hate speech towards the user.",
+    "full_response": {
+      "decision": "Toxic",
+      "confidence": 0.98,
+      "reasoning": "The message contains hate speech towards the user.",
+      "processing_time_ms": 2442.4996376037598,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "Everyone would be better off without you",
+    "ground_truth": "toxic",
+    "prediction": "toxic",
+    "confidence": 0.98,
+    "latency": 2.760840892791748,
+    "message_length": 40,
+    "categories": [],
+    "reasoning": "The message contains hate speech and is likely intended to harm or intimidate the user mentioned.",
+    "full_response": {
+      "decision": "Toxic",
+      "confidence": 0.98,
+      "reasoning": "The message contains hate speech and is likely intended to harm or intimidate the user mentioned.",
+      "processing_time_ms": 2756.053686141968,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "You're disgusting and pathetic",
+    "ground_truth": "toxic",
+    "prediction": "toxic",
+    "confidence": 0.98,
+    "latency": 2.6900837421417236,
+    "message_length": 30,
+    "categories": [],
+    "reasoning": "The message contains hate speech and is intended to insult and demean the user.",
+    "full_response": {
+      "decision": "Toxic",
+      "confidence": 0.98,
+      "reasoning": "The message contains hate speech and is intended to insult and demean the user.",
+      "processing_time_ms": 2686.3207817077637,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "I wish you would just shut up forever",
+    "ground_truth": "toxic",
+    "prediction": "toxic",
+    "confidence": 0.98,
+    "latency": 2.798245906829834,
+    "message_length": 37,
+    "categories": [],
+    "reasoning": "The message contains toxic language in the form of a wish for the user to never speak again.",
+    "full_response": {
+      "decision": "Toxic",
+      "confidence": 0.98,
+      "reasoning": "The message contains toxic language in the form of a wish for the user to never speak again.",
+      "processing_time_ms": 2793.0057048797607,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "You're nothing but a loser and failure",
+    "ground_truth": "toxic",
+    "prediction": "toxic",
+    "confidence": 0.98,
+    "latency": 2.5699539184570312,
+    "message_length": 38,
+    "categories": [],
+    "reasoning": "The message contains hate speech and personal insults.",
+    "full_response": {
+      "decision": "Toxic",
+      "confidence": 0.98,
+      "reasoning": "The message contains hate speech and personal insults.",
+      "processing_time_ms": 2562.5123977661133,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "Hello everyone, how are you doing today?",
+    "ground_truth": "non_toxic",
+    "prediction": "non_toxic",
+    "confidence": 1.0,
+    "latency": 2.806403160095215,
+    "message_length": 40,
+    "categories": [],
+    "reasoning": "The message does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
+    "full_response": {
+      "decision": "Non-Toxic",
+      "confidence": 1.0,
+      "reasoning": "The message does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
+      "processing_time_ms": 2797.7442741394043,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "Thanks for the help with the project",
+    "ground_truth": "non_toxic",
+    "prediction": "non_toxic",
+    "confidence": 1.0,
+    "latency": 2.898146867752075,
+    "message_length": 36,
+    "categories": [],
+    "reasoning": "The message is polite and does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
+    "full_response": {
+      "decision": "Non-Toxic",
+      "confidence": 1.0,
+      "reasoning": "The message is polite and does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
+      "processing_time_ms": 2890.2509212493896,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "Great weather we're having this week",
+    "ground_truth": "non_toxic",
+    "prediction": "non_toxic",
+    "confidence": 1.0,
+    "latency": 2.7862682342529297,
+    "message_length": 36,
+    "categories": [],
+    "reasoning": "The message does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
+    "full_response": {
+      "decision": "Non-Toxic",
+      "confidence": 1.0,
+      "reasoning": "The message does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
+      "processing_time_ms": 2779.3352603912354,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "Looking forward to the meeting tomorrow",
+    "ground_truth": "non_toxic",
+    "prediction": "non_toxic",
+    "confidence": 1.0,
+    "latency": 2.7864761352539062,
+    "message_length": 39,
+    "categories": [],
+    "reasoning": "The message does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
+    "full_response": {
+      "decision": "Non-Toxic",
+      "confidence": 1.0,
+      "reasoning": "The message does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
+      "processing_time_ms": 2781.130313873291,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "Have a wonderful and productive day",
+    "ground_truth": "non_toxic",
+    "prediction": "non_toxic",
+    "confidence": 1.0,
+    "latency": 2.9011571407318115,
+    "message_length": 35,
+    "categories": [],
+    "reasoning": "The message is friendly and does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
+    "full_response": {
+      "decision": "Non-Toxic",
+      "confidence": 1.0,
+      "reasoning": "The message is friendly and does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
+      "processing_time_ms": 2895.6403732299805,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "The presentation was really informative",
+    "ground_truth": "non_toxic",
+    "prediction": "non_toxic",
+    "confidence": 1.0,
+    "latency": 2.795121908187866,
+    "message_length": 39,
+    "categories": [],
+    "reasoning": "The message does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
+    "full_response": {
+      "decision": "Non-Toxic",
+      "confidence": 1.0,
+      "reasoning": "The message does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
+      "processing_time_ms": 2786.6358757019043,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "I appreciate your hard work on this",
+    "ground_truth": "non_toxic",
+    "prediction": "non_toxic",
+    "confidence": 1.0,
+    "latency": 3.0439329147338867,
+    "message_length": 35,
+    "categories": [],
+    "reasoning": "The message is polite and appreciative, and does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
+    "full_response": {
+      "decision": "Non-Toxic",
+      "confidence": 1.0,
+      "reasoning": "The message is polite and appreciative, and does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
+      "processing_time_ms": 3036.003828048706,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "Let's collaborate on the next phase",
+    "ground_truth": "non_toxic",
+    "prediction": "non_toxic",
+    "confidence": 1.0,
+    "latency": 2.876401901245117,
+    "message_length": 35,
+    "categories": [],
+    "reasoning": "The message does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
+    "full_response": {
+      "decision": "Non-Toxic",
+      "confidence": 1.0,
+      "reasoning": "The message does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
+      "processing_time_ms": 2864.7592067718506,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "The results look very promising",
+    "ground_truth": "non_toxic",
+    "prediction": "non_toxic",
+    "confidence": 1.0,
+    "latency": 2.8079471588134766,
+    "message_length": 31,
+    "categories": [],
+    "reasoning": "The message does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
+    "full_response": {
+      "decision": "Non-Toxic",
+      "confidence": 1.0,
+      "reasoning": "The message does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
+      "processing_time_ms": 2800.579071044922,
+      "template_version": "1.0"
+    }
+  },
+  {
+    "message": "Thank you for your patience and understanding",
+    "ground_truth": "non_toxic",
+    "prediction": "non_toxic",
+    "confidence": 1.0,
+    "latency": 2.8266000747680664,
+    "message_length": 45,
+    "categories": [],
+    "reasoning": "The message does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
+    "full_response": {
+      "decision": "Non-Toxic",
+      "confidence": 1.0,
+      "reasoning": "The message does not contain any toxic language, spam, personal information sharing, or inappropriate content.",
+      "processing_time_ms": 2819.829225540161,
       "template_version": "1.0"
     }
   }

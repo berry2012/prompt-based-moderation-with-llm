@@ -1,4 +1,4 @@
 |                  |   Predicted Non-Toxic |   Predicted Toxic |
 |:-----------------|----------------------:|------------------:|
-| Actual Non-Toxic |                    17 |                 3 |
-| Actual Toxic     |                    13 |                 7 |
+| Actual Non-Toxic |                    29 |                 1 |
+| Actual Toxic     |                    13 |                17 |
