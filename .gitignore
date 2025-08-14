@@ -40,7 +40,9 @@ Thumbs.db
 ; *.pdf
 ; *_report.md
 ; *.csv
+*.zip
 
 # Temporary files
 *.tmp
 *.temp
+tmp/
