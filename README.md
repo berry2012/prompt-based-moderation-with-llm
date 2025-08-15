@@ -1,6 +1,6 @@
 # Real-Time Moderation System
 
-A comprehensive real-time moderation system for streaming chat applications using Large Language Models, designed to integrate with your existing DeepSeek LLM deployment on Kubernetes.
+A comprehensive real-time moderation system for streaming chat applications using Large Language Models, designed to integrate with  Mistral or DeepSeek LLM deployment on Kubernetes.
 
 ## 🏗️ Architecture Overview
 
