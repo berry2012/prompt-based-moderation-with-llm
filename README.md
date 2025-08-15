@@ -473,16 +473,16 @@ cd moderation-system
 docker-compose up -d
 ```
 
-### **🏗️ EKS Architecture Overview**
+### **🏗️ Amazon EKS Architecture Overview**
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                        Amazon EKS Cluster                       │
 ├─────────────────────────────────────────────────────────────────┤
-│  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐ │
-│  │   Namespace:    │  │   Namespace:    │  │   Namespace:    │ │
-│  │   moderation    │  │   monitoring    │  │   ingress       │ │
-│  └─────────────────┘  └─────────────────┘  └─────────────────┘ │
+│  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐  │
+│  │   Namespace:    │  │   Namespace:    │  │   Namespace:    │  │
+│  │   moderation    │  │   monitoring    │  │   ingress       │  │
+│  └─────────────────┘  └─────────────────┘  └─────────────────┘  │
 └─────────────────────────────────────────────────────────────────┘
          │                       │                       │
          ▼                       ▼                       ▼
@@ -500,129 +500,22 @@ docker-compose up -d
 ### **🚀 EKS Deployment Prerequisites**
 
 #### **1. AWS CLI and Tools Setup**
+
+- An active Amazon Web Services [(AWS) account](https://signin.aws.amazon.com/signin?redirect_uri=https://portal.aws.amazon.com/billing/signup/resume&client_id=signup).
+- You have properly installed and configured latest versions of AWS Command Line Interface (AWS Command Line Interface [AWS CLI]), [kubectl](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html), [Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)  and [Helm CLI](https://helm.sh/docs/intro/install/)
+
+#### **2. AWS Access Configuration**
+
+- Refer to [Setting up new configuration and credentials](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-quickstart.html#getting-started-quickstart-new)
+
+### **🏗️ Amazon EKS Cluster Creation**
+
+#### **3. Create EKS Auto Mode Cluster with Terraform**
+
 ```bash
-# Install AWS CLI v2
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-unzip awscliv2.zip
-sudo ./aws/install
-
-# Install kubectl
-curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
-
-# Install eksctl
-curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
-sudo mv /tmp/eksctl /usr/local/bin
-
-# Install Helm
-curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
-
-# Verify installations
-aws --version
-kubectl version --client
-eksctl version
-helm version
-```
-
-#### **2. AWS Configuration**
-```bash
-# Configure AWS credentials
-aws configure
-# AWS Access Key ID: [Your Access Key]
-# AWS Secret Access Key: [Your Secret Key]
-# Default region name: us-west-2
-# Default output format: json
-
-# Verify AWS access
-aws sts get-caller-identity
-```
-
-### **🏗️ EKS Cluster Creation**
-
-#### **3. Create EKS Cluster**
-```bash
-# Create cluster configuration
-cat > cluster-config.yaml << EOF
-apiVersion: eksctl.io/v1alpha5
-kind: ClusterConfig
-
-metadata:
-  name: moderation-system-cluster
-  region: us-west-2
-  version: "1.28"
-
-nodeGroups:
-  - name: moderation-workers
-    instanceType: m5.large
-    desiredCapacity: 3
-    minSize: 2
-    maxSize: 10
-    volumeSize: 50
-    ssh:
-      allow: true
-    iam:
-      withAddonPolicies:
-        autoScaler: true
-        cloudWatch: true
-        ebs: true
-        efs: true
-        albIngress: true
-
-addons:
-  - name: vpc-cni
-  - name: coredns
-  - name: kube-proxy
-  - name: aws-ebs-csi-driver
-
-cloudWatch:
-  clusterLogging:
-    enable: ["api", "audit", "authenticator", "controllerManager", "scheduler"]
-EOF
-
-# Create the cluster (takes 15-20 minutes)
-eksctl create cluster -f cluster-config.yaml
-
-# Update kubeconfig
-aws eks update-kubeconfig --region us-west-2 --name moderation-system-cluster
-
-# Verify cluster
-kubectl get nodes
-```
-
-#### **4. Install Essential Add-ons**
-```bash
-# Install AWS Load Balancer Controller
-curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.7.2/docs/install/iam_policy.json
-
-aws iam create-policy \
-    --policy-name AWSLoadBalancerControllerIAMPolicy \
-    --policy-document file://iam_policy.json
-
-eksctl create iamserviceaccount \
-  --cluster=moderation-system-cluster \
-  --namespace=kube-system \
-  --name=aws-load-balancer-controller \
-  --role-name AmazonEKSLoadBalancerControllerRole \
-  --attach-policy-arn=arn:aws:iam::$(aws sts get-caller-identity --query Account --output text):policy/AWSLoadBalancerControllerIAMPolicy \
-  --approve
-
-helm repo add eks https://aws.github.io/eks-charts
-helm repo update
-
-helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
-  -n kube-system \
-  --set clusterName=moderation-system-cluster \
-  --set serviceAccount.create=false \
-  --set serviceAccount.name=aws-load-balancer-controller
-
-# Install Cluster Autoscaler
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/autoscaler/master/cluster-autoscaler/cloudprovider/aws/examples/cluster-autoscaler-autodiscover.yaml
-
-kubectl -n kube-system annotate deployment.apps/cluster-autoscaler \
-  cluster-autoscaler.kubernetes.io/safe-to-evict="false"
-
-kubectl -n kube-system edit deployment.apps/cluster-autoscaler
-# Add: --node-group-auto-discovery=asg:tag=k8s.io/cluster-autoscaler/enabled,k8s.io/cluster-autoscaler/moderation-system-cluster
+cd eks-infrastructure
+terraform ini
+terraform apply -auto-approve
 ```
 
 ### **🗂️ Kubernetes Deployment Structure**
@@ -733,80 +626,10 @@ helm install prometheus prometheus-community/kube-prometheus-stack \
   --set prometheus.prometheusSpec.storageSpec.volumeClaimTemplate.spec.resources.requests.storage=50Gi
 ```
 
-### **🔒 Security and Compliance**
-
-#### **8. Network Policies and Security**
-```bash
-# Apply network policies from deployment manifests
-kubectl apply -f network-policies.yaml
-
-# The network policies include:
-# - Ingress rules for ALB and monitoring access
-# - Egress rules for external LLM and database connections
-# - Inter-service communication within the namespace
-# - Isolation from other namespaces
-```
-
-For detailed security configuration, see the complete network policies in `deployment/kubernetes/network-policies.yaml`.
-
-### **🚀 Deployment and Validation**
-
-#### **9. Build and Push Container Images**
-```bash
-# Create ECR repositories
-aws ecr create-repository --repository-name moderation-system/mcp-server
-aws ecr create-repository --repository-name moderation-system/chat-simulator
-aws ecr create-repository --repository-name moderation-system/lightweight-filter
-
-# Get ECR login token
-aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin ACCOUNT.dkr.ecr.us-west-2.amazonaws.com
-
-# Build and push images
-docker build -t ACCOUNT.dkr.ecr.us-west-2.amazonaws.com/moderation-system/mcp-server:latest ./services/mcp-server
-docker push ACCOUNT.dkr.ecr.us-west-2.amazonaws.com/moderation-system/mcp-server:latest
-
-docker build -t ACCOUNT.dkr.ecr.us-west-2.amazonaws.com/moderation-system/chat-simulator:latest ./services/chat-simulator
-docker push ACCOUNT.dkr.ecr.us-west-2.amazonaws.com/moderation-system/chat-simulator:latest
-
-docker build -t ACCOUNT.dkr.ecr.us-west-2.amazonaws.com/moderation-system/lightweight-filter:latest ./services/lightweight-filter
-docker push ACCOUNT.dkr.ecr.us-west-2.amazonaws.com/moderation-system/lightweight-filter:latest
-```
-
-#### **10. Deploy and Test**
-```bash
-# Navigate to deployment directory
-cd deployment/kubernetes
-
-# Update container registry in deployment files
-sed -i 's|your-registry|ACCOUNT.dkr.ecr.us-west-2.amazonaws.com|g' deployments/*.yaml
-
-# Deploy all services using the automated script
-./deploy.sh deploy
-
-# Check deployment status
-./deploy.sh status
-
-# Run health checks
-./deploy.sh health
-
-# Test the deployment
-kubectl port-forward -n moderation-system svc/chat-simulator-service 8002:8002 &
-curl http://localhost:8002/health
-
-# Test moderation endpoint
-kubectl port-forward -n moderation-system svc/mcp-server-service 8000:8000 &
-curl -X POST http://localhost:8000/moderate \
-  -H "Content-Type: application/json" \
-  -d '{
-    "message": "Hello world",
-    "user_id": "test_user",
-    "channel_id": "general"
-  }'
-```
 
 ### **📈 Production Operations**
 
-#### **11. Monitoring and Alerting**
+#### **8. Monitoring and Alerting**
 ```bash
 # Access Grafana dashboard
 kubectl port-forward -n monitoring svc/prometheus-grafana 3000:80
@@ -821,7 +644,7 @@ kubectl apply -f deployments/monitoring.yaml
 # - Database connection failures
 ```
 
-#### **12. Scaling and Performance**
+#### **9. Scaling and Performance**
 ```bash
 # Manual scaling
 kubectl scale deployment mcp-server --replicas=5 -n moderation-system
@@ -839,40 +662,15 @@ for i in $(seq 1 1000); do
 done
 ```
 
-For detailed deployment instructions, troubleshooting, and configuration options, see the complete guide in `deployment/kubernetes/README.md`.
-
-### **🔧 EKS Management Commands**
-
-```bash
-# Cluster management
-eksctl get cluster
-eksctl get nodegroup --cluster moderation-system-cluster
-
-# Update cluster
-eksctl update cluster --name moderation-system-cluster
-
-# Add new node group
-eksctl create nodegroup \
-  --cluster moderation-system-cluster \
-  --name gpu-workers \
-  --instance-types g4dn.xlarge \
-  --nodes 2 \
-  --nodes-min 1 \
-  --nodes-max 5
-
-# Delete cluster (when done)
-eksctl delete cluster --name moderation-system-cluster
-```
-
 ### **💰 Cost Optimization**
 
 - **Use Spot Instances**: Configure node groups with spot instances for non-critical workloads
 - **Right-size Resources**: Monitor and adjust CPU/memory requests and limits
-- **Cluster Autoscaler**: Automatically scale nodes based on demand
+- **EKS Auto Mode**: Automatically scale nodes based on demand
 - **Scheduled Scaling**: Scale down during off-hours
 - **Reserved Instances**: Use RIs for predictable workloads
 
-### **🎯 EKS Benefits**
+### **🎯 EKS Auto Mode Benefits**
 
 - **High Availability**: Multi-AZ deployment with automatic failover
 - **Scalability**: Auto-scaling based on demand
