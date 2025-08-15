@@ -432,13 +432,6 @@ python generate_architecture_diagram.py
 
 This will create PNG and PDF versions of the architecture diagrams in `docs/images/`.
 
-## ☁️ Amazon EKS Deployment Architecture
-
-For production deployments, the Real-Time Moderation System can be deployed on Amazon EKS (Elastic Kubernetes Service) for scalability, high availability, and enterprise-grade operations.
-
-> **📁 Complete Kubernetes manifests and deployment scripts are available in the `deployment/kubernetes/` directory. See `deployment/kubernetes/README.md` for detailed instructions.**
-
-
 ## Clean Up
 
 **To clean up the docker deployment run the following shell command:**
@@ -466,14 +459,9 @@ docker image prune -a  # Remove all unused images
 docker system prune -a  # Complete Docker cleanup
 ```
 
-### ** To Restart Later:**
 
-```bash
-cd moderation-system
-docker-compose up -d
-```
 
-### **🏗️ Amazon EKS Architecture Overview**
+### **Production: Amazon EKS Architecture Overview**
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -513,7 +501,7 @@ docker-compose up -d
 #### **3. Create EKS Auto Mode Cluster with Terraform**
 
 ```bash
-cd eks-infrastructure
+cd deployments/terraform
 terraform ini
 terraform apply -auto-approve
 ```
