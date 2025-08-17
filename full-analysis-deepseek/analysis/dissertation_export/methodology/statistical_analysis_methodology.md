@@ -1,6 +1,6 @@
 
 # Statistical Analysis Report: Real-Time Moderation System
-Generated: 2025-08-14 14:37:05
+Generated: 2025-08-17 22:37:22
 
 ## Executive Summary
 
@@ -12,9 +12,9 @@ from system metrics and provides quantitative assessments suitable for academic 
 
 
 ### Key Findings:
-- Total messages processed: 90
-- Toxic message rate: 0.644 (95% CI: 0.541 - 0.736)
-- Non-toxic message rate: 0.356 (95% CI: 0.264 - 0.459)
+- Total messages processed: 89
+- Toxic message rate: 0.652 (95% CI: 0.548 - 0.743)
+- Non-toxic message rate: 0.348 (95% CI: 0.257 - 0.452)
 - Filter intervention rate: 0.000 (95% CI: 0.000 - 0.041)
 
 ### Statistical Significance:
@@ -26,8 +26,8 @@ The confidence intervals provide statistical bounds for the true population para
 ### Reliability Metrics:
 - System reliability: 1.0000 (95% CI: 1.0000 - 1.0000)
 - Error rate: 0.0000
-- Mean Time Between Failures (MTBF): 90.0 requests
-- Total requests analyzed: 90
+- Mean Time Between Failures (MTBF): 89.0 requests
+- Total requests analyzed: 89
 
 ### Interpretation:
 The system demonstrates high reliability with a low error rate. The MTBF estimate suggests 
@@ -37,8 +37,8 @@ robust operational performance suitable for production deployment.
 
 
 ### Filter Performance:
-- Pass rate: 0.744
-- Flag rate: 0.256
+- Pass rate: 0.756
+- Flag rate: 0.244
 - Block rate: 0.000
 - Total filtered messages: 90
 

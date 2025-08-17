@@ -16,13 +16,13 @@
 | Mean Processing Time | 2777.3 | ms | Arithmetic Mean |
 | Processing Time Std Dev | 217.8 | ms | Standard Deviation |
 | System Reliability | 1.0000 | Proportion | 95% CI: (1.0000, 1.0000) |
-| MTBF | 90.0 | Requests | Mean Time Between Failures |
+| MTBF | 89.0 | Requests | Mean Time Between Failures |
 
 ### Table 3: Classification Results Summary
 | Classification | Count | Percentage | 95% CI |
 |----------------|-------|------------|--------|
-| Toxic | 57 | 64.4% | (54.1%, 73.6%) |
-| Non-Toxic | 32 | 35.6% | (26.4%, 45.9%) |
+| Toxic | 58 | 65.2% | (54.8%, 74.3%) |
+| Non-Toxic | 30 | 34.8% | (25.7%, 45.2%) |
 | Filtered | 0 | 0.0% | (0.0%, 4.1%) |
 
 ### Table 4: Statistical Significance and Reliability Tests
@@ -36,7 +36,7 @@
 ### Table 5: Experimental Design Summary
 | Parameter | Value | Description |
 |-----------|-------|-------------|
-| Total Messages Analyzed | 90 | Complete dataset size |
+| Total Messages Analyzed | 89 | Complete dataset size |
 | Evaluation Sample Size | 20 | Controlled evaluation subset |
 | Confidence Level | 95% | Statistical confidence for all intervals |
 | Analysis Framework | Academic Standard | Dissertation-quality methodology |
@@ -53,4 +53,4 @@
 inclusion in dissertation results sections with appropriate statistical reporting.
 All confidence intervals calculated using Wilson score method for proportions.
 
-**Generated:** 2025-08-14 14:47:00
+**Generated:** 2025-08-17 22:47:21
