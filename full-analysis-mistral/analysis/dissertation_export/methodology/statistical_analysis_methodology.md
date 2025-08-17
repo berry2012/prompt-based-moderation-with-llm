@@ -1,6 +1,6 @@
 
 # Statistical Analysis Report: Real-Time Moderation System
-Generated: 2025-08-14 13:25:23
+Generated: 2025-08-17 23:26:18
 
 ## Executive Summary
 
@@ -37,8 +37,8 @@ robust operational performance suitable for production deployment.
 
 
 ### Filter Performance:
-- Pass rate: 0.744
-- Flag rate: 0.256
+- Pass rate: 0.756
+- Flag rate: 0.244
 - Block rate: 0.000
 - Total filtered messages: 90
 

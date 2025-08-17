@@ -1,5 +1,5 @@
 # Model Performance Evaluation Report
-## Real Dataset Analysis - 2025-08-14 13:10:54
+## Real Dataset Analysis - 2025-08-17 23:11:50
 
 ### Executive Summary
 This report presents a comprehensive evaluation of the real-time moderation system using the SetFit/toxic_conversations dataset. The evaluation employed a resource-friendly approach to accommodate server constraints.
@@ -22,37 +22,37 @@ This report presents a comprehensive evaluation of the real-time moderation syst
 ### Performance Metrics
 
 #### Classification Performance
-- **Accuracy**: 0.7667 (76.7%)
-- **Precision**: 0.9444 (94.4%)
+- **Accuracy**: 0.7833 (78.3%)
+- **Precision**: 1.0000 (100.0%)
 - **Recall**: 0.5667 (56.7%)
-- **F1-Score**: 0.7083 (70.8%)
-- **ROC AUC**: 0.8883
+- **F1-Score**: 0.7234 (72.3%)
+- **ROC AUC**: 0.8961
 
 #### Response Time Analysis
-- **Mean Response Time**: 3.040 seconds
-- **Median Response Time**: 3.021 seconds
-- **Standard Deviation**: 0.352 seconds
-- **Min Response Time**: 2.285 seconds
-- **Max Response Time**: 3.927 seconds
+- **Mean Response Time**: 3.058 seconds
+- **Median Response Time**: 3.117 seconds
+- **Standard Deviation**: 0.341 seconds
+- **Min Response Time**: 2.322 seconds
+- **Max Response Time**: 3.987 seconds
 
 ### Confusion Matrix Analysis
 The confusion matrix reveals the following classification patterns:
            Non-Toxic  Toxic
-Non-Toxic         29      1
+Non-Toxic         30      0
 Toxic             13     17
 
 ### Per-Class Performance Analysis
 
 #### Non-Toxic Class Performance
-- **Precision**: 0.6905
-- **Recall**: 0.9667
-- **F1-Score**: 0.8056
+- **Precision**: 0.6977
+- **Recall**: 1.0000
+- **F1-Score**: 0.8219
 - **Support**: 30.0 samples
 
 #### Toxic Class Performance
-- **Precision**: 0.9444
+- **Precision**: 1.0000
 - **Recall**: 0.5667
-- **F1-Score**: 0.7083
+- **F1-Score**: 0.7234
 - **Support**: 30.0 samples
 
 ### Statistical Significance
@@ -67,9 +67,9 @@ The resource-friendly evaluation approach was employed:
 ### Recommendations
 
 #### Performance Optimization
-1. **Accuracy Improvement**: Current accuracy of 76.7% falls below typical production standards (85%+)
-2. **Precision-Recall Balance**: Imbalanced precision (0.944) and recall (0.567)
-3. **Response Time**: Average response time of 3.04s is acceptable for real-time applications
+1. **Accuracy Improvement**: Current accuracy of 78.3% falls below typical production standards (85%+)
+2. **Precision-Recall Balance**: Imbalanced precision (1.000) and recall (0.567)
+3. **Response Time**: Average response time of 3.06s is acceptable for real-time applications
 
 #### Resource Management
 1. **Server Optimization**: Resource-friendly approach successfully managed server constraints
@@ -79,7 +79,7 @@ The resource-friendly evaluation approach was employed:
 The moderation system demonstrates moderate performance on real-world toxic conversation data. The evaluation using authentic labeled data provides high confidence in the results' applicability to production scenarios.
 
 ### Technical Details
-- **Evaluation Date**: 2025-08-14 13:10:54
+- **Evaluation Date**: 2025-08-17 23:11:50
 - **Dataset Source**: SetFit/toxic_conversations
 - **Evaluation Framework**: Custom academic evaluation suite
 - **Statistical Methods**: Scikit-learn metrics with balanced sampling
