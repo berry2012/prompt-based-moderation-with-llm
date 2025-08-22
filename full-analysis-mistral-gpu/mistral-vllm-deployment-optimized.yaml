@@ -1,0 +1,212 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mistral
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/app-metrics: "true"
+    prometheus.io/port: "8080"
+    service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: ip  
+    service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing    
+  labels:
+    model: mistral7b
+spec:
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    model: mistral7b
+  type: LoadBalancer
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mistral
+  labels:
+    model: mistral7b
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      model: mistral7b
+  template:
+    metadata:
+      labels:
+        model: mistral7b
+      annotations:
+        # Performance monitoring annotations
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8080"
+        prometheus.io/path: "/metrics"
+    spec:
+      # QoS Class: Guaranteed (requests = limits for critical resources)
+      nodeSelector:
+        node.kubernetes.io/instance-type: trn1.32xlarge	
+        eks.amazonaws.com/compute-type: auto        
+      tolerations:
+        - effect: NoSchedule
+          key: aws.amazon.com/neuron
+          operator: Exists
+      initContainers:
+        - name: model-download
+          image: amazon/aws-cli
+          command: ["/bin/bash", "-c"]
+          args:
+            - |
+              set -e              
+              echo "Checking target directory..."
+              if [ ! -d "/tmp/models/mistral-7b-v0-2" ]; then
+                echo "Creating target directory..."
+                mkdir -p /tmp/models/mistral-7b-v0-2
+              
+                echo "Copying files..."
+                if [ -d "/models/models/mistral-7b" ]; then
+                  cp -rv /models/models/mistral-7b/* /tmp/models/mistral-7b-v0-2/
+                  echo "Copy completed. New directory structure:"
+                  rm -rf /tmp/models/mistral-7b-v0-2/compiled
+                else
+                  echo "Source directory /models/models/mistral-7b does not exist!"
+                  exit 1
+                fi
+              else
+                echo "Target directory already exists"
+              fi
+          volumeMounts:
+            - name: model-volume
+              mountPath: /models
+            - name: local-storage
+              mountPath: /tmp/models
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: 500m
+              memory: 1Gi
+      containers:
+        - name: vllm
+          # v0.7.3
+          image: public.ecr.aws/e3e2e5u9/neuron/genai:v6
+          imagePullPolicy: IfNotPresent
+          command: ["/bin/sh", "-c"]
+          args: [
+            # OPTIMIZED vLLM COMMAND with all recommended parameters
+            "vllm serve /tmp/models/mistral-7b-v0-2 --tokenizer /tmp/models/mistral-7b-v0-2 --port 8080 --host 0.0.0.0 --device neuron --tensor-parallel-size 2 --max-num-seqs 16 --block-size 16 --use-v2-block-manager --max-model-len 2048 --dtype bfloat16 --swap-space 4 --max-paddings 256"
+          ]
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+              name: http
+          # OPTIMIZED RESOURCES - More realistic limits
+          resources:
+            requests:
+              cpu: 16
+              memory: 30Gi
+              aws.amazon.com/neuron: 1
+            limits:
+              cpu: 18          # Slightly above requests for burst capacity
+              memory: 45Gi     # Reasonable limit with headroom for swap-space
+              aws.amazon.com/neuron: 1
+          # HEALTH CHECKS - Critical for production
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 60    # Allow time for model loading
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 120   # Allow more time for initial startup
+            periodSeconds: 30
+            timeoutSeconds: 10
+            failureThreshold: 3
+          # STARTUP PROBE - For slow-starting containers
+          startupProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 18       # 3 minutes total startup time
+          volumeMounts:
+            - name: dshm
+              mountPath: /dev/shm
+            - name: local-storage
+              mountPath: /tmp/models
+            - name: model-volume
+              mountPath: /models
+          env:
+            # NEURON CONFIGURATION
+            - name: NEURON_RT_NUM_CORES
+              value: "2"
+            - name: NEURON_RT_VISIBLE_CORES
+              value: "0,1"
+            # VLLM CONFIGURATION
+            - name: VLLM_LOGGING_LEVEL
+              value: "INFO"
+            - name: NEURON_ON_DEVICE_SAMPLING_DISABLED
+              value: "1"
+            - name: VLLM_NEURON_FRAMEWORK
+              value: "transformers-neuronx"
+            # PERFORMANCE OPTIMIZATION
+            - name: VLLM_WORKER_MULTIPROC_METHOD
+              value: "spawn"
+            - name: VLLM_ENGINE_ITERATION_TIMEOUT_S
+              value: "60"
+            - name: CUDA_VISIBLE_DEVICES
+              value: ""  # Disable CUDA since using Neuron
+            # MEMORY OPTIMIZATION
+            - name: MALLOC_ARENA_MAX
+              value: "4"
+            - name: MALLOC_MMAP_THRESHOLD_
+              value: "131072"
+      # GRACEFUL SHUTDOWN
+      terminationGracePeriodSeconds: 30  # Increased for proper cleanup
+      volumes:
+        - name: dshm
+          emptyDir:
+            medium: Memory
+            sizeLimit: 8Gi  # INCREASED shared memory for higher concurrency
+        - name: model-volume
+          persistentVolumeClaim:
+            claimName: fsx-models
+        - name: local-storage
+          emptyDir:
+            sizeLimit: 50Gi  # Limit local storage usage
+
+---
+# OPTIONAL: Resource Quota for namespace-level resource management
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: mistral-quota
+spec:
+  hard:
+    requests.cpu: "20"
+    requests.memory: 40Gi
+    limits.cpu: "25"
+    limits.memory: 60Gi
+    aws.amazon.com/neuron: "2"
+
+---
+# OPTIONAL: Pod Disruption Budget for availability
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: mistral-pdb
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      model: mistral7b
